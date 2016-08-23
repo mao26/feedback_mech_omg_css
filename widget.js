@@ -46,3 +46,10 @@ $("button").mouseout(function() {
     }
     mouseleave = true;
 });
+
+$("#feedback-submit-btn").on('click', function() {
+  var page_path = window.location.pathname;
+  var improve = $("#improve").val();
+  var feedback = $("#feedback").val();
+  $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "improve": improve , "feedback": feedback});
+});
