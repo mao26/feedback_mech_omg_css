@@ -146,6 +146,10 @@ form{
     outline: 0 none;
 }
 
+.reaction-bar i.selected {
+  color: rgb(210, 186, 51);
+}
+
 textarea{
     width: 100%;
 }
