@@ -57,7 +57,8 @@ $("#feedback-submit-btn").on('click', function() {
   var page_path = window.location.pathname;
   var improve = $("#improve").val();
   var feedback = $("#feedback").val();
-  $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "improve": improve , "feedback": feedback});
+  var reaction = $(".fa.selected").attr('id').split('-')[1]
+  $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "reaction": reaction, "improve": improve , "feedback": feedback});
 });
 
 var reactionSelected = false;
@@ -65,21 +66,20 @@ var reactionSelected = false;
 $('.fa').click(function(){
     //if no reaction selected
     if(reactionSelected==false){
-        var myClass = $(this).attr("class").split(' ')[1];
-        $('.' + myClass).css("color","#D2BA33");
+        $(this).toggleClass("selected")
         reactionSelected = true;
-    } 
+    }
     //if a reaction is already selected
     else {
         //deselecting an reaction
-        if($(this).css("color")=="rgb(210, 186, 51)"){
-            $(this).css("color","rgb(132, 132, 132)");
+        if($(this).hasClass("selected")) {
+            $(this).toggleClass("selected");
             reactionSelected = false;
         }
         //selecting another reaction
         else{
-            $(".fa").css("color", "rgb(132, 132, 132)");
-            $(this).css("color", "#D2BA33");
+            $(".fa").removeClass("selected");
+            $(this).toggleClass("selected");
             reactionSelected = true;
         }
     }
