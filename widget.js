@@ -59,3 +59,28 @@ $("#feedback-submit-btn").on('click', function() {
   var feedback = $("#feedback").val();
   $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "improve": improve , "feedback": feedback});
 });
+
+var reactionSelected = false;
+//reaction button click event
+$('.fa').click(function(){
+    //if no reaction selected
+    if(reactionSelected==false){
+        var myClass = $(this).attr("class").split(' ')[1];
+        $('.' + myClass).css("color","#D2BA33");
+        reactionSelected = true;
+    } 
+    //if a reaction is already selected
+    else {
+        //deselecting an reaction
+        if($(this).css("color")=="rgb(210, 186, 51)"){
+            $(this).css("color","rgb(132, 132, 132)");
+            reactionSelected = false;
+        }
+        //selecting another reaction
+        else{
+            $(".fa").css("color", "rgb(132, 132, 132)");
+            $(this).css("color", "#D2BA33");
+            reactionSelected = true;
+        }
+    }
+});

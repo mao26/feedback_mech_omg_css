@@ -73,26 +73,21 @@ button:active, button:focus{
      color: rgba(0, 0, 0, 0.75);
  }
  
- .reaction-bar button{
-     outline: none;
-     border: none;
-     background-color: inherit;
-     margin-top: 12px;
- }
- 
  .reaction-bar i{
      display: inline-block !important;
      font-size: 25px;
-     color: #C9B127;
+     color: rgb(132, 132, 132);
      transition: all 0.2s ease-in-out;
+     margin-left: 20px;
  }
  
  .reaction-bar i:hover{
      display: inline-block !important;
      font-size: 25px;
-     color: #C9B127;
+     color: rgb(132, 132, 132);
      transform: scale(1.2);
      font-weight: 550;
+     cursor: pointer;
 }
 
 form{
