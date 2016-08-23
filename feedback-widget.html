@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>Feedback Widget</title>
+    
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <button id="feedback-widget">
+        <div class="item"> 
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+            <p id="provide_feedback">Provide Feedback</p>
+        </div>
+    </button>
+    <form> 
+        <h3>Help us improve Beta!</h3>
+        <p style="font-size:14px">How can we improve?</p>
+        <textarea type="text" rows='4' value={this.state.value} onChange={this.handleChange}/></textarea>
+        <p style="font-size:14px">General Feedback?</p>
+        <textarea type="text" rows='4' value={this.state.value} onChange={this.handleChange}/></textarea>
+        <br>
+        <br>
+<!--        <p style="font-size: 13px">This information will be reported on GitHub where it will be publicly visible. You can review all reported feedback on our GitHub page.</p>-->
+        <button class="btn-default">Submit</button>
+    </form>
+    <script src="widget.js"></script>
+</body>
+
+</html>
