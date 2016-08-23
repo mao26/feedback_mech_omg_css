@@ -1,6 +1,6 @@
 #feedback-widget{
     border: none;
-    background-color: #36C1B0;
+    background-color: #36BFAF;
     display: inline-table;
     position: absolute;
     color: white;
@@ -9,7 +9,6 @@
     height: 50px;
     bottom: 40px;
     left: 30px;
-    
     -moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
@@ -70,30 +69,30 @@ button:active, button:focus{
 }
 
 .reaction-bar{
-    display: inline-block !important;
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.reaction-bar button{
-    outline: none;
-    border: none;
-    background-color: inherit;
-    margin-top: 12px;
-}
-
-.reaction-bar i{
-    display: inline-block !important;
-    font-size: 25px;
-    color: #C9B127;
-    transition: all 0.2s ease-in-out;
-}
-
-.reaction-bar i:hover{
-    display: inline-block !important;
-    font-size: 25px;
-    color: #C9B127;
-    transform: scale(1.2);
-    font-weight: 550;
+     display: inline-block !important;
+     color: rgba(0, 0, 0, 0.75);
+ }
+ 
+ .reaction-bar button{
+     outline: none;
+     border: none;
+     background-color: inherit;
+     margin-top: 12px;
+ }
+ 
+ .reaction-bar i{
+     display: inline-block !important;
+     font-size: 25px;
+     color: #C9B127;
+     transition: all 0.2s ease-in-out;
+ }
+ 
+ .reaction-bar i:hover{
+     display: inline-block !important;
+     font-size: 25px;
+     color: #C9B127;
+     transform: scale(1.2);
+     font-weight: 550;
 }
 
 form{
@@ -106,9 +105,9 @@ form{
     font-family: Arial;
     padding-left: 20px;
     padding-right: 20px;
+    color: rgba(0, 0, 0, 0.75);
     bottom: 40px;
     left: 30px;
-    
     -webkit-box-shadow: 0 6px 4px -4px #E2E2E2;
     -moz-box-shadow: 0 6px 4px -4px #E2E2E2;
     box-shadow: 0 6px 4px -4px #E2E2E2;
