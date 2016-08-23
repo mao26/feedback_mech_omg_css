@@ -1,17 +1,22 @@
 var buttonClicked = true;
-$("button").click(function () {
+
+// button click event to toggle form
+$("button").click(function() {
     //if button is clicked
     if(buttonClicked==true){
+        $("button").animate({"bottom": "420px"}, "slow");
         $("form").slideDown("slow");
         buttonClicked=false;
     }
     //if button is clicked again
     else{
         buttonClicked = true;
+        $("button").animate({"bottom": "40px"}, "slow");
         $("form").slideUp("slow");
     }
 });
 
+// mouse over event to convert circle button to rect button
 var mouseleave = false;
 $("button").mouseover(function(){
     $("#feedback-widget").css({
@@ -25,6 +30,7 @@ $("button").mouseover(function(){
     mouseleave = false;
 });
 
+//mouse out event to convert rect button back to circle
 $("button").mouseout(function() {
     if (buttonClicked==true){
         $("#feedback-widget").css({
@@ -46,3 +52,5 @@ $("button").mouseout(function() {
     }
     mouseleave = true;
 });
+
+$(".fa").click

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     
@@ -18,11 +17,18 @@
         </div>
     </button>
     <form> 
-        <h3>Help us improve Beta!</h3>
+        <br><br>
+<!--        <h3>Help us improve Beta!</h3>-->
+        <div class="reaction-bar">
+            <p style="display: inline-block; font-size: 14px;"><strong>Rating: </strong></p>
+            <button><i class="fa fa-smile-o fa-3x"></i></button>
+            <button><i class="fa fa-meh-o fa-3x"></i></button>
+            <button><i class="fa fa-frown-o fa-3x"></i></button>
+        </div>
         <p style="font-size:14px"><strong>How can we improve?</strong></p>
-        <textarea type="text" rows='4' value={this.state.value} onChange={this.handleChange}/></textarea>
+        <textarea type="text" rows='3' value={this.state.value} onChange={this.handleChange}/></textarea>
         <p style="font-size:14px"><strong>General Feedback?</strong></p>
-        <textarea type="text" rows='4' value={this.state.value} onChange={this.handleChange}/></textarea>
+        <textarea type="text" rows='3' value={this.state.value} onChange={this.handleChange}/></textarea>
         <br>
         <p style="font-size: 13px">This information will be reported on GitHub where it will be publicly visible. You can review all reported feedback on our GitHub page.</p>
         <button class="btn-default">Submit</button>
