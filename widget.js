@@ -11,8 +11,8 @@ $("button").click(function() {
     //if button is clicked again
     else{
         buttonClicked = true;
-        $("button").animate({"bottom": "40px"}, "slow");
-        $("form").slideUp("slow");
+        $("button").delay(500).animate({"bottom": "40px"}, "slow");
+        $("form").delay(500).slideUp("slow");
     }
 });
 
@@ -23,7 +23,9 @@ $("button").mouseover(function(){
         //circle to rect
         'border-radius':'0', 
         'width':'300px', 
-        'height':'50px'});
+        'height':'50px',
+        
+    });
     $("i").hide();
     $("p").show();
     
@@ -62,10 +64,10 @@ $("#feedback-submit-btn").on('click', function() {
 
 var reactionSelected = false;
 //reaction button click event
-$('.fa').click(function(){
+$('.fa-reaction').click(function(){
     //if no reaction selected
     if(reactionSelected==false){
-        var myClass = $(this).attr("class").split(' ')[1];
+        var myClass = $(this).attr("class").split(' ')[2];
         $('.' + myClass).css("color","#D2BA33");
         reactionSelected = true;
     } 
@@ -78,7 +80,7 @@ $('.fa').click(function(){
         }
         //selecting another reaction
         else{
-            $(".fa").css("color", "rgb(132, 132, 132)");
+            $(".fa-reaction").css("color", "rgb(132, 132, 132)");
             $(this).css("color", "#D2BA33");
             reactionSelected = true;
         }
