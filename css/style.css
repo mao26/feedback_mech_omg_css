@@ -68,6 +68,20 @@ button:active, button:focus{
     font-size: 18px;
 }
 
+.fa-times{
+    display: inline !important;
+    font-size: 18px;
+    color: white;
+    float: right;
+    line-height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.fa-times:hover{
+    color: #C33652;
+}
+
 .reaction-bar{
      display: inline-block !important;
      color: rgba(0, 0, 0, 0.75);

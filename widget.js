@@ -11,8 +11,8 @@ $("button").click(function() {
     //if button is clicked again
     else{
         buttonClicked = true;
-        $("button").animate({"bottom": "40px"}, "slow");
-        $("form").slideUp("slow");
+        $("button").delay(500).animate({"bottom": "40px"}, "slow");
+        $("form").delay(500).slideUp("slow");
     }
 });
 
@@ -23,7 +23,9 @@ $("button").mouseover(function(){
         //circle to rect
         'border-radius':'0', 
         'width':'300px', 
-        'height':'50px'});
+        'height':'50px',
+        
+    });
     $("i").hide();
     $("p").show();
     
@@ -63,24 +65,7 @@ $("#feedback-submit-btn").on('click', function() {
 
 var reactionSelected = false;
 //reaction button click event
-$('.fa').click(function(){
-    //if no reaction selected
-    if(reactionSelected==false){
-        $(this).toggleClass("selected")
-        reactionSelected = true;
-    }
-    //if a reaction is already selected
-    else {
-        //deselecting an reaction
-        if($(this).hasClass("selected")) {
-            $(this).toggleClass("selected");
-            reactionSelected = false;
-        }
-        //selecting another reaction
-        else{
-            $(".fa").removeClass("selected");
-            $(this).toggleClass("selected");
-            reactionSelected = true;
-        }
-    }
+$('.fa-reaction').click(function(){
+  $(this).siblings().removeClass("selected");
+  $(this).toggleClass("selected")
 });
