@@ -9,32 +9,30 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-  <button id="feedback-widget">
-    <div class="item">
-      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      <p id="provide_feedback">
-        Provide Feedback
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </p>
-    </div>
-  </button>
-  <form>
-    <div class="reaction-bar">
-      <p style="display: inline-block; font-size: 14px;"><strong>Rating: </strong></p>
-      <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-      <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-      <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-    </div>
-    <p style="font-size:14px"><strong>How can we improve?</strong></p>
+  <div class="feedback-module">
+    <button id="feedback-widget">
+      <div class="item">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <p id="provide_feedback">
+          Provide Feedback
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </p>
+      </div>
+    </button>
+    <form>
+      <div class="reaction-bar">
+        <p>Rating:</p>
+        <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+        <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+        <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+      </div>
 
-    <textarea type="text" rows='3' value={this.state.value} onChange={this.handleChange}/></textarea>
-    <p style="font-size:14px"><strong>General Feedback?</strong></p>
-    <textarea type="text" rows='3' value={this.state.value} onChange={this.handleChange}/></textarea>
-
-    <br>
-    <p style="font-size: 13px">This information will be reported on GitHub where it will be publicly visible. You can review all reported feedback on our GitHub page.</p>
-    <button id="feedback-submit-btn" class="btn-default">Submit</button>
-  </form>
+      <p>General Feedback?</p>
+      <textarea type="text" rows='3' value={this.state.value} onChange={this.handleChange}/></textarea>
+      <p class="small">This information will be reported on GitHub where it will be publicly visible. You can review all reported feedback on our GitHub page.</p>
+      <button id="feedback-submit-btn" class="btn-default">Submit</button>
+    </form>
+  </div>
 
   <script src="widget.js"></script>
 </body>

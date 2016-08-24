@@ -4,7 +4,7 @@ var buttonClicked = true;
 $("button").click(function() {
   //if button is clicked
   if(buttonClicked === true){
-    $("button").animate({"bottom": "420px"}, "slow");
+    $("button").animate({"bottom": "290px"}, "slow");
     $("form").slideDown("slow");
     buttonClicked=false;
   }
