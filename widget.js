@@ -11,8 +11,8 @@ $("button").click(function() {
     //if button is clicked again
     else{
         buttonClicked = true;
-        $("button").animate({"bottom": "40px"}, "slow");
-        $("form").slideUp("slow");
+        $("button").delay(500).animate({"bottom": "40px"}, "slow");
+        $("form").delay(500).slideUp("slow");
     }
 });
 
@@ -23,7 +23,9 @@ $("button").mouseover(function(){
         //circle to rect
         'border-radius':'0', 
         'width':'300px', 
-        'height':'50px'});
+        'height':'50px',
+        
+    });
     $("i").hide();
     $("p").show();
     
@@ -57,5 +59,13 @@ $("#feedback-submit-btn").on('click', function() {
   var page_path = window.location.pathname;
   var improve = $("#improve").val();
   var feedback = $("#feedback").val();
-  $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "improve": improve , "feedback": feedback});
+  var reaction = $(".fa.selected").attr('id').split('-')[1]
+  $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "reaction": reaction, "improve": improve , "feedback": feedback});
+});
+
+var reactionSelected = false;
+//reaction button click event
+$('.fa-reaction').click(function(){
+  $(this).siblings().removeClass("selected");
+  $(this).toggleClass("selected")
 });
