@@ -12,14 +12,14 @@
   <div class="feedback-module">
     <button class="circle-button" id="feedback-widget">
       <div class="item">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        <p id="provide_feedback">
+        <i id="widget-icon" class="fa fa-comment-o" aria-hidden="true"></i>
+        <p id="provide_feedback" style="display: none">
           Provide Feedback
           <i id="feedback-close" class="fa fa-times" aria-hidden="true"></i>
         </p>
       </div>
     </button>
-    <form>
+    <form onsubmit="return false;">
       <div class="reaction-bar">
         <p>Rating:</p>
         <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
