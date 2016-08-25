@@ -94,19 +94,6 @@ button.rect-button {
     color: #C33652;
 }
 
-
-.mood-icon:before {
-  content: "";
-  background-image: url('../mood-icon.png');
-  background-size: 35px 35px;
-  position: absolute;
-  height: 35px;
-  width: 35px;
-  top: 5px;
-  left: 5px;
-
-}
-
 .feedback-module {
   font-size: 14px;
   color: #222;
