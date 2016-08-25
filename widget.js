@@ -28,7 +28,7 @@ $("#feedback-widget").click(function() {
 });
 
 // close the form
-$("#feedback-close").on('click', function() {
+$("#feedback-close, #feedback-submit-btn").on('click', function() {
   if (feedbackOpen) {
     $(".feedback-module form").slideUp("slow");
     $("#feedback-widget").animate({
@@ -37,6 +37,8 @@ $("#feedback-close").on('click', function() {
                                    "border-radius": "50px"
                                   }, "slow");
     $("#feedback-widget").removeClass("rect-button");
+    $("p").hide();
+    $("i").fadeIn()
     event.stopPropagation(); // prevent widget click from registering
     feedbackOpen = false;
   }
@@ -50,9 +52,15 @@ $('.fa-reaction').click(function(){
 
 $("#feedback-submit-btn").on('click', function() {
   var page_path = window.location.pathname;
-  var improve = $("#improve").val();
   var feedback = $("#feedback").val();
   var reaction = $(".fa.selected").attr('id').split('-')[1];
-  $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "reaction": reaction, "improve": improve , "feedback": feedback});
+  $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "reaction": reaction, "feedback": feedback})
+    .done(function() {
+      if (feedback && reaction) {
+        $("#widget-icon").removeClass("fa-comment-o");
+        $("#widget-icon").addClass("fa-check-circle-o");
+        $("#feedback-widget").addClass("feedback-success");
+        $(".feedback-module").delay(1800).fadeOut();
+      }
+    });
 });
-
