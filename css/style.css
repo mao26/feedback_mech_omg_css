@@ -29,6 +29,18 @@ button:active, button:focus {
   border: none;
 }
 
+button.circle-button {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+button.rect-button {
+  border-radius: 0 !important;
+  width: 300px !important;
+  height: 50px;
+}
+
 .btn-default {
   background-color: white;
   color: #222;
@@ -82,6 +94,19 @@ button:active, button:focus {
     color: #C33652;
 }
 
+
+.mood-icon:before {
+  content: "";
+  background-image: url('../mood-icon.png');
+  background-size: 35px 35px;
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  top: 5px;
+  left: 5px;
+
+}
+
 .feedback-module {
   font-size: 14px;
   color: #222;
@@ -132,6 +157,7 @@ button:active, button:focus {
   transition: height 1s;
   transition: width 1s;
   z-index: 1000;
+  overflow: hidden;
 
   -webkit-box-shadow: 0 6px 4px -4px #C9C9C9;
   -moz-box-shadow: 0 6px 4px -4px #C9C9C9;
