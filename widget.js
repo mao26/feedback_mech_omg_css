@@ -1,59 +1,51 @@
-var buttonClicked = true;
-
-// button click event to toggle form
-$("button").click(function() {
-  //if button is clicked
-  if(buttonClicked === true){
-    $("button").animate({"bottom": "290px"}, "slow");
-    $("form").slideDown("slow");
-    buttonClicked=false;
-  }
-  //if button is clicked again
-  else {
-    buttonClicked = true;
-    $("button").delay(500).animate({"bottom": "40px"}, "slow");
-    $("form").delay(500).slideUp("slow");
-  }
-});
+var feedbackOpen = false;
 
 // mouse over event to convert circle button to rect button
-var mouseleave = false;
-$("button").mouseover(function() {
-  $("#feedback-widget").css( {
-  //circle to rect
-    'border-radius':'0',
-    'width':'300px',
-    'height':'50px',
-  });
-  $("i").hide();
-  $("p").show();
-
-  mouseleave = false;
+$("#feedback-widget").mouseover(function() {
+  if (!feedbackOpen) {
+    $("#feedback-widget").addClass("rect-button")
+    $("i").hide();
+    $("p").show();
+  }
 });
 
 //mouse out event to convert rect button back to circle
-$("button").mouseout(function() {
-  if (buttonClicked === true) {
-    $("#feedback-widget").css( {
-      //rect to circle
-      'width': '50px',
-      'height': '50px',
-      '-moz-border-radius': '50px',
-      '-webkit-border-radius': '50px',
-      'border-radius': '50px'
-    });
+$("#feedback-widget").mouseout(function() {
+  if (!feedbackOpen) {
+    $("#feedback-widget").removeClass("rect-button")
     $("p").hide();
     $("i").show();
-  } else {
-    $("#feedback-widget").css( {
-        //circle to rect
-        'border-radius':'0',
-        'width':'300px',
-        'height':'50px'
-    });
-    $("p").show();
   }
-  mouseleave = true;
+});
+
+// button click event to toggle form
+$("#feedback-widget").click(function() {
+  if (!feedbackOpen) {
+    $("#feedback-widget").animate({"bottom": "290px"}, "slow");
+    $(".feedback-module form").slideDown("slow");
+    feedbackOpen = true;
+  }
+});
+
+// close the form
+$("#feedback-close").on('click', function() {
+  if (feedbackOpen) {
+    $(".feedback-module form").slideUp("slow");
+    $("#feedback-widget").animate({
+                                   "bottom": "40px",
+                                   "width": "50px",
+                                   "border-radius": "50px"
+                                  }, "slow");
+    $("#feedback-widget").removeClass("rect-button");
+    event.stopPropagation(); // prevent widget click from registering
+    feedbackOpen = false;
+  }
+});
+
+//reaction button click event
+$('.fa-reaction').click(function(){
+  $(this).siblings().removeClass("selected");
+  $(this).toggleClass("selected");
 });
 
 $("#feedback-submit-btn").on('click', function() {
@@ -64,8 +56,3 @@ $("#feedback-submit-btn").on('click', function() {
   $.post("http://localhost:3000/api/v1/feedback", {"page": page_path, "reaction": reaction, "improve": improve , "feedback": feedback});
 });
 
-//reaction button click event
-$('.fa-reaction').click(function(){
-  $(this).siblings().removeClass("selected");
-  $(this).toggleClass("selected");
-});
