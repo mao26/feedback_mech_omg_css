@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analytics Dashboard</title>
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link href="public/css/analytics_style.css" rel="stylesheet">
+    <link href="public/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/animate.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="public/js/viewportchecker.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('.post').addClass("hidden").viewportChecker({
+                classToAdd: 'visible animated bounceInLeft', // Class to add to the elements when they are visible
+                offset: 100
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div style="height: 500px; position: relative">
+        <div class=" w3-center w3-grey w3-padding-128" style="overflow-y:scroll; max-height:100%;">
+            <!-- Navbar -->
+            <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #36BFAF">
+                <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+                    <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                </li>
+                <li><a href="#" class="w3-padding-large w3-white">Home</a></li>
+                <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" id="click-button">Bar Graph</a></li>
+                <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white">Word Cloud</a></li>
+            </ul>
+            <!-- Navbar on small screens -->
+            <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
+                <ul class="w3-navbar w3-left-align w3-large w3-black">
+                    <li><a class="w3-padding-large" href="#">Link 1</a></li>
+                    <li><a class="w3-padding-large" href="#">Link 2</a></li>
+                </ul>
+            </div>
+
+
+            <div class="w3-content w3-center w3-white w3-padding-250 w3-round-xlarge">
+                <br/>
+                <h1 class="w3-margin w3-jumbo" id="title">HAWKIFY</h1>
+                <img class="w3-center" src="public/img/graph_logo.png" style="width:200px;height:170px;">
+                <br/>
+                <br/>
+            </div>
+            <br/>
+            <div class="post">
+                <p class="w3-xlarge">Analyze how your users interact with your webpage</p>
+                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" onclick="hitDB()">Get Started</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

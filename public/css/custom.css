@@ -2,6 +2,7 @@
     font-size: 200px;
 }
 
+/*
 #title {
     color: #082b34;
     font-family: 'Rouge Script', cursive;
@@ -11,4 +12,42 @@
     margin: 0 0 50px;
     text-align: center;
     text-shadow: 1px 1px 2px #36BFAF;
+}*/
+
+.hidden{
+     opacity:0;
+}
+.visible{
+     opacity:1;
+}
+
+h1 {
+	color: grey;
+	font-family: 'Noto Serif';
+	font-size: 80px;
+	font-weight: 700;
+	line-height: 138px;
+}
+
+p {
+	color: #333;
+
+	font-family: 'Noto Serif';
+	font-size: 20px;
+	font-style: italic;
+	line-height: 54px;
+}
+
+a {
+	color: black;	display: block;
+	font-weight: 700;
+	font-size: 16px;
+	letter-spacing: 3px;
+	margin-left: -6px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+a:hover {
+	color: #333;
 }
