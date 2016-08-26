@@ -94,3 +94,15 @@ td > p{
     margin-top: -83px;
     
 }
+
+.header-logo{
+    display: block;
+    position: relative;
+    z-index: 0;
+}
+
+.header-analyze{
+    display: block;
+    position: relative;
+    z-index: 0;
+}
