@@ -5,6 +5,7 @@
  */
 $(document).ready(function () {
     reactionTally();
+    bestRatedPages();
 });
 /* reactionTally()
  * Counts the number of happy, neutral, and sad reactions
@@ -30,6 +31,9 @@ function reactionTally() {
                 // do nothing
             }
         });
+        $('#reaction-happy').append(happyCount);
+        $('#reaction-meh').append(neutralCount);
+        $('#reaction-frown').append(frownCount);
         console.log("Happy = [%d], meh = [%d], frown = [%d]", happyCount, neutralCount, frownCount);
     });
 }
@@ -43,14 +47,16 @@ function bestRatedPages() {
         $.each(data, function (key, value) {
             // Use a hashmap to tally the pages
             if (pagemap[value.page] == null) {
+                console.log("Adding [%s]", value.page);
                 pagemap[value.page] = 1;
             }
             else {
+                console.log("Incrementing [%s]", value.page);
                 ++pagemap[value.page];
             }
         });
         $.each(pagemap, function (key, value) {
-            console.log(pagemap[value]);
+            console.log("Page = %s\nPagemap = %s", key, value);
         });
     });
 }
