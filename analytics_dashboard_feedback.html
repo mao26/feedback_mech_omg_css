@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Scroll effects with CSS animation</title>
+    <title>REVOLVify</title>
     <meta name="description" content="Page scroll animation using CSS animate" />
     <meta name="keywords" content="css animation, loading effect, animate, scroll loading, scroll animation" />
     <meta name="author" content="Mario Oliver" />
@@ -67,9 +67,6 @@
         </div>
 
         <div class="post_fromRight" id="list_div">
-            <span class="icon fa fa-anchor"> </span>
-            <h2> Lorem ipsum </h2>
-            <p> At vero eos et </p>
         </div>
 
         <div class="post" id="cloud_div">
@@ -99,33 +96,92 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             jQuery('.post_fromRight').addClass("hidden").viewportChecker({
-                classToAdd: 'visible animated tada', // Class to add to the elements when they are visible
+                classToAdd: 'visible animated bounceInRight', // Class to add to the elements when they are visible
                 offset: 100
             });
         });
     </script>
-    
+
     <script>
         function hitDB() {
             $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
                 var array = data;
                 var i;
-                for(i = 0; i < array.length; i++){
-                    console.log(array[i]);   
-                    var iDiv = document.createElement('div');
-                    iDiv.setAttribute("id", "block");
-                    iDiv.setAttribute("class", "block");
-                    iDiv.setAttribute("style", "background-color: red");
-                    iDiv.setAttribute("width", "150px");
-                    iDiv.setAttribute("length", "150px");
-                    document.getElementById("footer").appendChild(iDiv);
+                for (i = 0; i < array.length; i++) {
+                    console.log(array[i]);
+                    var doc_root = document.getElementById("list_div");
+                    var comment_ui = document.createElement("div");
+                    var brek = document.createElement('br');
+                    comment_ui.setAttribute("id", "comment-ui-block");
+                    comment_ui.setAttribute("class", "comment-ui-block w3-round-xlarge w3-padding-250 w3-center");
+                    comment_ui.setAttribute("style", "border-style: solid; border-color: #267b82; border-width: 5px; text-align:center; max-width : 300px");
+                    doc_root.appendChild(comment_ui);
+                    if (array[i].comment != null) {
+                        var comment_text = document.createElement("div");
+                        var text = "Comment: ";
+                        comment_text.textContent = text;
+                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
+                        comment_ui.appendChild(comment_text);
+                        var comment = document.createElement("span");
+                        comment.textContent = array[i].comment;
+                        comment.setAttribute("style", "color : grey !important");
+                        comment_text.appendChild(comment);
+                    }
+                    if (array[i].page != null) {
+                        var comment_text = document.createElement("div");
+                        var text = "Page: ";
+                        comment_text.textContent = text;
+                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
+                        comment_ui.appendChild(comment_text);
+                        var page = document.createElement("span");
+                        page.setAttribute("style", "color : grey !important");
+                        page.textContent = array[i].page;
+                        comment_text.appendChild(page);
+                    }
+                    if (array[i].reaction != null) {
+                        var reaction = array[i].reaction;
+                        /*      <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                                <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                                <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                        */
+                        var img = document.createElement('i');
+                        if (reaction === "frown") {
+                            img.setAttribute("class", "fa fa-reaction fa-frown-o");
+                        }
+                        if (reaction === "meh") {
+                            img.setAttribute("class", "fa fa-reaction fa-meh-o");
+                        }
+                        if (reaction === "happy") {
+                            img.setAttribute("class", "fa fa-reaction fa-smile-o");
+                        }
+                        img.setAttribute("style", "font-weight: bold; color: black ");
+                        img.setAttribute("height", "50px");
+                        img.setAttribute("width", "50px");
+                        comment_ui.appendChild(img);
+                    }
+                    if (array[i].feedback != null) {
+                        var comment_text = document.createElement("div");
+                        var text = "Feedback: ";
+                        comment_text.textContent = text;
+                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
+                        comment_ui.appendChild(comment_text);
+                        var iDiv = document.createElement('span');
+                        iDiv.setAttribute("id", "feedback-block");
+                        iDiv.setAttribute("class", "feedback-block w3-round-xlarge w3-padding-250 w3-center");
+                        iDiv.setAttribute("width", "100px");
+                        iDiv.setAttribute("height", "300px");
+                        iDiv.setAttribute("style", "color : grey !important");
+                        comment_text.appendChild(iDiv);
+                        iDiv.textContent = array[i].feedback;
+                        
+                    }
+                    doc_root.appendChild(brek);
                 }
             });
         }
     </script>
-    
+
     <script src="public/js/sentiment_analysis.js">
-        
     </script>
 
 </body>
