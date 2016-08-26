@@ -2,18 +2,6 @@
     font-size: 200px;
 }
 
-/*
-#title {
-    color: #082b34;
-    font-family: 'Rouge Script', cursive;
-    font-size: 130px;
-    font-weight: normal;
-    line-height: 48px;
-    margin: 0 0 50px;
-    text-align: center;
-    text-shadow: 1px 1px 2px #36BFAF;
-}*/
-
 .hidden{
      opacity:0;
 }
@@ -73,7 +61,10 @@ td > p{
 
 .page-emo-count{
     display: inline;
-    float: right;
+}
+
+#best-worst-page-table tr, td, th{
+    border: 1px solid black;
 }
 
 #best-worst-page-table td{
