@@ -51,3 +51,18 @@ a {
 a:hover {
 	color: #333;
 }
+
+/* PAGE: TRAFFIC */
+.gcharts-thead {
+  border: 1px solid rgb(204, 204, 204);
+  background-color: rgb(233, 233, 233);
+}
+
+.gcharts-thead:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+.gcharts-thead th.gradient {
+  background-image: none;
+  padding: 7px;
+}
