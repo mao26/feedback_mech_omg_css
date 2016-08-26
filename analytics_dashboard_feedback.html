@@ -17,17 +17,29 @@
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="public/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+    <!-- D3 Web CDN -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <!-- jQuery Web CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- D3 Word Cloud Script Files -->
+    <script src="public/js/d3.layout.cloud.js"></script>
+    <!-- style for word cloud ONLY -->
+    <style>
+        .cloud {
+            font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
+        }
+    </style>
 
 </head>
 
 <body>
 
-    <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #36BFAF">
+    <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
         <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
             <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         </li>
-        <li><a href="analytics_dashboard_home.html" class="w3-padding-large w3-white">Home</a></li>
-        <li class="w3-hide-small"><a href="analytics_dashboard_feedback.html" class="w3-padding-large w3-hover-white" id="click-button">Feedback</a></li>
+        <li><a href="analytics_dashboard_home.html" class="w3-hide-small w3-padding-large w3-hover-white">Home</a></li>
+        <li><a href="analytics_dashboard_feedback.html" class="w3-padding-large w3-white" id="click-button">Feedback</a></li>
         <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Traffic</a></li>
     </ul>
 
@@ -36,14 +48,15 @@
 
         <header class="top">
 
-            <h1 class="site-title"><a href="index2.html"> Analytics of User Feedback </a></h1>
+            <h1 class="site-title"> Analytics of
+            User Feedback </h1>
         </header>
 
         <nav class="effects">
             <ul>
-                <li> <a href="index.html"> Wordcloud </a> </li>
-                <li> <a href="index2.html"> Bar graph </a> </li>
-                <li> <a href="index3.html"> List </a> </li>
+                <li> <a href="#"> Wordcloud </a> </li>
+                <li> <a href="#"> Sentiment Analysis </a> </li>
+                <li> <a href="#" onclick="hitDB()"> List </a> </li>
             </ul>
         </nav>
 
@@ -53,21 +66,20 @@
             <p> At vero .</p>
         </div>
 
-        <div class="post">
+        <div class="post_fromRight" id="list_div">
             <span class="icon fa fa-anchor"> </span>
             <h2> Lorem ipsum </h2>
             <p> At vero eos et </p>
         </div>
 
-        <div class="post">
-            <span class="icon fa fa-camera-retro"> </span>
-            <h2> Lorem ipsum</h2>
-            <p> At vero eo.</p>
+        <div class="post" id="cloud_div">
+            <script src="public/js/d3drawcloud.js"></script>
+
         </div>
 
 
-        <footer class="footer">
-            Created by <a href="http://www.web2feel.com/">OMG-CSS</a>
+        <footer class="footer" id="footer">
+            Created by <a href="#">OMG-CSS</a>
 
         </footer>
 
@@ -83,6 +95,37 @@
                 offset: 100
             });
         });
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('.post_fromRight').addClass("hidden").viewportChecker({
+                classToAdd: 'visible animated tada', // Class to add to the elements when they are visible
+                offset: 100
+            });
+        });
+    </script>
+    
+    <script>
+        function hitDB() {
+            $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
+                var array = data;
+                var i;
+                for(i = 0; i < array.length; i++){
+                    console.log(array[i]);   
+                    var iDiv = document.createElement('div');
+                    iDiv.setAttribute("id", "block");
+                    iDiv.setAttribute("class", "block");
+                    iDiv.setAttribute("style", "background-color: red");
+                    iDiv.setAttribute("width", "150px");
+                    iDiv.setAttribute("length", "150px");
+                    document.getElementById("footer").appendChild(iDiv);
+                }
+            });
+        }
+    </script>
+    
+    <script src="public/js/sentiment_analysis.js">
+        
     </script>
 
 </body>
