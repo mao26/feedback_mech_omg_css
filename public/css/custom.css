@@ -50,6 +50,10 @@ a:hover {
 	color: #333;
 }
 
+/* SUMMARY */
+table tr td{
+    border: 1px solid black;
+}
 #emoji-table td .fa{
     display: table;
     font-size: 30px;
@@ -78,4 +82,15 @@ td > p{
 
 #best-worst-page-table td span{
     font-family: Arial;
+}
+
+/* Banner */
+.background-img{
+    height: 100%;
+    width: 100%;
+    display: block;
+    z-index:0;
+    position: absolute;
+    margin-top: -83px;
+    
 }
