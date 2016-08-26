@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Analytics Dashboard</title>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -14,7 +18,6 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
     <body>
-
         <!-- Navbar -->
         <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-large" style="background-color: #36BFAF">
             <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
@@ -52,15 +55,50 @@
         <!-- First Grid -->
         <div class="w3-row-padding w3-padding-64 w3-container" id="grid-1">
             <div class="w3-content">
-                <div class="w3-twothird">
-                    <h1>Bar Graph</h1>
-                    <h5 class="w3-padding-32">Below you can see how the user interacts with our data.</h5>
-                    <p class="w3-text-grey">This is some other stuff about why I'm so hungry all of the time.</p>
-                </div>
-
-                <div class="w3-third w3-center" id="bar-chart">
-                    <i class="fa fa-bar-chart-o w3-padding-64" style="color: #36BFAF"></i>
-                </div>
+                <h1>Summary</h1>
+                <table class="table table-bordered" id="emoji-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                                <p>Total: </p>
+                            </td>
+                            <td>
+                                <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                                <p>Total: </p>
+                            </td>
+                            <td>
+                                <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                                <p>Total: </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered" id="best-worst-page-table">
+                    <thead>
+                        <tr>
+                            <th>Best Pages</th>
+                            <th>Worst Pages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="best-col">
+                                <div class="page-name">index.html</div>
+                                <div class="page-emo-count">
+                                    <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i>
+                                </div>
+                            </td>
+                            <td id="worst-col">
+                                <div class="page-name">yosemite.html</div>
+                                <div class="page-emo-count">
+                                    <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i>
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -94,6 +132,8 @@
             </div>
         </footer>
 
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script>
             // Used to toggle the menu on small screens when clicking on the menu button
             function myFunction() {
