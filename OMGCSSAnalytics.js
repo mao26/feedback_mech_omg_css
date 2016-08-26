@@ -20,8 +20,8 @@ var clientIP = "";
 var clientUID = "";
 var geoAPIkey = "https://freegeoip.net/json/";
 var ipRequestServer = "http://54.183.84.147:3000/api/v1/ip";
-var url_userdata = "";
-var url_timedata = "";
+var url_userdata = "http://54.183.84.147:3000/api/v1/analytics";
+var url_timedata = "http://54.183.84.147:3000/api/v1/analytics/time";
 
 //Empty object to return to DB
 var UserObject = {
