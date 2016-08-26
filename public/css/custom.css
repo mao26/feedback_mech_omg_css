@@ -67,6 +67,10 @@ td > p{
     border: 1px solid black;
 }
 
+#best-worst-page-table th{
+    padding-right: 20px;
+}
+
 #best-worst-page-table td{
     padding-right: 20px;
 }
