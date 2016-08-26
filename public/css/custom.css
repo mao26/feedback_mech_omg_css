@@ -31,10 +31,8 @@ h1 {
 
 p {
 	color: #333;
-
-	font-family: 'Noto Serif';
+/*	font-family: 'Noto Serif';*/
 	font-size: 20px;
-	font-style: italic;
 	line-height: 54px;
 }
 
@@ -50,4 +48,34 @@ a {
 
 a:hover {
 	color: #333;
+}
+
+#emoji-table td .fa{
+    display: table;
+    font-size: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+td > p{
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.page-name{
+    display: inline;
+}
+
+.page-emo-count{
+    display: inline;
+    float: right;
+}
+
+#best-worst-page-table td{
+    padding-right: 20px;
+}
+
+#best-worst-page-table td span{
+    font-family: Arial;
 }
