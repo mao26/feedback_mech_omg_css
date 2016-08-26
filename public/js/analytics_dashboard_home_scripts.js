@@ -37,7 +37,7 @@ function reactionTally() {
         console.log("Happy = [%d], meh = [%d], frown = [%d]", happyCount, neutralCount, frownCount);
     });
 }
-/* bestRatedPages() 
+/* mostRatedPages() 
  * Finds the pages with the most happy reactions
  */
 function mostRatedPages() {
@@ -58,6 +58,36 @@ function mostRatedPages() {
         $.each(pagemap, function (key, value) {
             console.log("Page = %s\nTotal Feedback = %s", key, value);
         });
+    });
+}
+/* bestRatedPage() 
+ * Finds the pages with the most happy reactions
+ */
+function bestRatedPage() {
+    var happypagemap = {};
+    $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
+        console.log("Calculating best rated page...");
+        // Iterate through the list of feedbacks and count each page entry
+        $.each(data, function (key, value) {
+            // If the page doesn't exist, add it to the array
+            if (pagemap[value.page] == null) {
+                console.log("Adding [%s]", value.page);
+                happypagemap[value.page] = 0;
+            }
+            if (value.reaction == "happy") {
+                ++happypagemap[value.page];
+            }
+        });
+        // 
+        var happiestpage = {
+            "placeholder.html", 0
+        };
+        $.each(happypagemap, function (key, value) {
+            console.log("Page = %s\nHappy Feedbacks = %s", key, value);
+        });
+        var ma
+        var max_of_array = Math.max.apply(Math, pagemap);
+        console.log("Highest rated page is: %s")
     });
 }
 /* worstRatedPages()
