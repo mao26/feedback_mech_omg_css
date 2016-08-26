@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Analytics Dashboard</title>
-
+    
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet">
@@ -14,9 +14,13 @@
     <link href="public/css/analytics_style.css" rel="stylesheet">
     <link href="public/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    
+    <!-- Latest compiled and minified JavaScript -->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="public/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+        <!-- Latest compiled and minified CSS -->
     <script src="public/js/viewportchecker.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
@@ -31,8 +35,9 @@
 <body>
     <!-- puts our first set of divs (nav + revolvify) inside of a scrollable container -->
     <div style="height: 800px; position: relative">
-        <div class=" w3-center w3-grey w3-padding-128" style="overflow-y:scroll; max-height:100%;">
+        <div class=" w3-center w3-padding-128 w3-background" style="overflow-y:scroll; max-height:100%;">
             <!-- Navbar -->
+            <img class="background-img" src="public/img/yosemite.jpg">
             <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
                 <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
                     <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -50,15 +55,14 @@
             </div>
 
 
-            <div class="w3-content w3-center w3-white w3-padding-250 w3-round-xlarge">
+            <div class="w3-content w3-center w3-padding-250 w3-round-xlarge header-logo">
                 <br/>
-                <h1 class="w3-margin w3-jumbo">REVOLVify</h1>
-                <img class="w3-center" src="public/img/graph_logo.png" style="width:200px;height:170px;">
-                <br/>
+                <h1 class="w3-margin w3-jumbo" style="color: white;">REVOLVify</h1>
+<!--                <img class="w3-center" src="public/img/graph_logo.png" style="width:200px;height:170px">-->
                 <br/>
             </div>
             <br/>
-            <div class="post">
+            <div class="post header-analyze">
                 <p class="w3-xlarge">Analyze how your users interact with your webpage</p>
                 <button class="w3-btn w3-white w3-padding-16 w3-margin-top" onclick="hitDB()">Get Started</button>
             </div>
@@ -78,31 +82,76 @@
     <!-- First Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container post" id="grid-1">
         <div class="w3-content">
-            <div class="w3-twothird">
-                <h1 class="post">Bar Graph</h1>
-                <h5 class="w3-padding-32">Below you can see how the user interacts with our data.</h5>
-                <p class="w3-text-grey">"I saw the angel in the marble and carved until I set him free."</p>
-                <h6>- by Michelangelo</h6>
-            </div>
-
-            <div class="w3-third w3-center" id="bar-chart">
-                <i class="fa fa-bar-chart-o w3-padding-64" style="color: #36BFAF"></i>
-            </div>
+            <h1>Summary</h1>
+            <table class="table table-bordered" id="emoji-table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                            <p>Total: 
+                                <span id="reaction-total-1"></span>
+                            </p>
+                        </td>
+                        <td>
+                            <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                            <p>Total: 
+                                <span id="reaction-total-2"></span>
+                            </p>
+                        </td>
+                        <td>
+                            <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                            <p>Total: 
+                                <span id="reaction-total-3"></span>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <table class="table table-bordered" id="best-worst-page-table">
+                <tbody>
+                    <tr>
+                        <th>Best Pages</th>
+                        <td>
+                            <div class="page-name">index.html</div>
+                        </td>
+                        <td>
+                            <div class="page-emo-count">
+                                <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Worst Pages</th>
+                        <td>
+                            <div class="page-name">yosemite.html</div>
+                        </td>
+                        <td>
+                            <div class="page-emo-count">
+                                <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Most Rated</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Most Visited</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <!-- Second Grid -->
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="grid-2">
         <div class="w3-content">
-            <div class="w3-third w3-center" id="bar-chart">
-                <i class="fa fa-cloud w3-padding-64 w3-margin-right" style="color: #36BFAF"></i>
-            </div>
-
-            <div class="w3-twothird">
-                <h1>Word Cloud</h1>
-                <p class="w3-text-grey w">“Design is the fundamental soul of a human-made creation that ends up expressing itself in successive outer layers of the product or service.”</p>
-                <h6>— by Steve Jobs.</h6>
-            </div>
+            
         </div>
     </div>
 
@@ -141,7 +190,7 @@
             });
         }
     </script>
-
+    <script src="public/js/analytics_dashboard_home_scripts.js"></script>
 </body>
 
 </html>
