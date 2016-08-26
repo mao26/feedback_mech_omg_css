@@ -29,9 +29,21 @@ button:active, button:focus {
   border: none;
 }
 
+button.circle-button {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+button.rect-button {
+  border-radius: 0 !important;
+  width: 300px !important;
+  height: 50px;
+}
+
 .btn-default {
   background-color: white;
-  color: #222;
+  color: #444;
   border-radius: 1px;
   border: 1px solid #222;
   height: 35px;
@@ -48,22 +60,20 @@ button:active, button:focus {
 .btn-default.active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  background: #222;
+  background: #444;
   color: white;
   box-shadow: none;
   outline: 0 none;
 }
 
 /* Font awesome stuff */
-.fa-pencil-square-o {
-  line-height: 50px;
+.fa-comment-o, .fa-check-circle-o {
   color: white;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   font-size: 20px;
   width: 50px;
-  height: 50px;
   font-weight: 500;
 }
 
@@ -79,7 +89,11 @@ button:active, button:focus {
 }
 
 .fa-times:hover {
-    color: #C33652;
+  color: #C33652;
+}
+
+.feedback-success {
+  background-color: #267b82 !important;
 }
 
 .feedback-module {
@@ -116,7 +130,7 @@ button:active, button:focus {
 
 #feedback-widget {
   border: none;
-  background-color: #36BFAF;
+  background-color: #267b82;
   display: inline-table;
   position: absolute;
   color: white;
@@ -132,6 +146,7 @@ button:active, button:focus {
   transition: height 1s;
   transition: width 1s;
   z-index: 1000;
+  overflow: hidden;
 
   -webkit-box-shadow: 0 6px 4px -4px #C9C9C9;
   -moz-box-shadow: 0 6px 4px -4px #C9C9C9;
@@ -183,20 +198,20 @@ button:active, button:focus {
   display: inline-block !important;
   top: 4px;
   font-size: 25px;
-  color: rgb(132, 132, 132);
+  color: #777;
   transition: all 0.2s ease-in-out;
-  margin-left: 20px;
+  margin-left: 7px;
 }
 
 .reaction-bar i:hover {
   display: inline-block !important;
   font-size: 25px;
-  color: rgb(132, 132, 132);
+  color: #ffeb5f;
   transform: scale(1.2);
   font-weight: 550;
   cursor: pointer;
 }
 
 .reaction-bar i.selected {
-  color: rgb(210, 186, 51);
+  color: #ffe212;
 }
