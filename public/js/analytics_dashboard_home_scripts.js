@@ -36,7 +36,7 @@ function reactionTally() {
         $('#reaction-total-1').append(happyCount);
         $('#reaction-total-2').append(neutralCount);
         $('#reaction-total-3').append(frownCount);
-        console.log("Happy = [%d], meh = [%d], frown = [%d]", happyCount, neutralCount, frownCount);
+        //console.log("Happy = [%d], meh = [%d], frown = [%d]", happyCount, neutralCount, frownCount);
     });
 }
 /* mostRatedPages() 
@@ -49,11 +49,11 @@ function mostRatedPages() {
         $.each(data, function (key, value) {
             // Use a hashmap to tally the pages
             if (pagemap[value.page] == null) {
-                console.log("Adding [%s]", value.page);
+                //console.log("Adding [%s]", value.page);
                 pagemap[value.page] = 1;
             }
             else {
-                console.log("Incrementing [%s]", value.page);
+                //console.log("Incrementing [%s]", value.page);
                 ++pagemap[value.page];
             }
         });
@@ -64,7 +64,7 @@ function mostRatedPages() {
                 mostratedpage = key;
                 mostratedpageratings = value;
             }
-            console.log("Page = %s\nTotal Feedback = %s", key, value);
+            //console.log("Page = %s\nTotal Feedback = %s", key, value);
         });
         $('#most-rated-page').append(mostratedpage);
         $('#most-rated-page-ratings').append(mostratedpageratings);
@@ -75,7 +75,7 @@ function mostRatedPages() {
 // Finds the pages with the most happy reactions
 //
 function bestRatedPage() {
-    console.log("Calculating best rated page...");
+    //console.log("Calculating best rated page...");
     var happypagemap = {};
     $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
         // Iterate through the list of feedbacks and count each page entry
@@ -98,9 +98,9 @@ function bestRatedPage() {
                 happiestpage = key;
                 happiestpageratings = value;
             }
-            console.log("Page = %s\nHappy Feedbacks = %s", key, value);
+            //console.log("Page = %s\nHappy Feedbacks = %s", key, value);
         });
-        console.log("Happiest page = %s, happies = %d", happiestpage, happiestpageratings);
+        //console.log("Happiest page = %s, happies = %d", happiestpage, happiestpageratings);
         $('#best-page').append(happiestpage);
         $('#best-page-reaction-count').append(happiestpageratings);
     });
@@ -109,14 +109,14 @@ function bestRatedPage() {
  * Finds the pages with the most sad reactions
  */
 function worstRatedPages() {
-    console.log("Calculating worst rated page...");
+    //console.log("Calculating worst rated page...");
     var sadpagemap = {};
     $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
         // Iterate through the list of feedbacks and count each page entry
         $.each(data, function (key, value) {
             // If the page doesn't exist, add it to the array
             if (sadpagemap[value.page] == null) {
-                console.log("Adding [%s]", value.page);
+                //console.log("Adding [%s]", value.page);
                 sadpagemap[value.page] = 0;
             }
             if (value.reaction == "frown") {
@@ -132,9 +132,9 @@ function worstRatedPages() {
                 worstpage = key;
                 worstpageratings = value;
             }
-            console.log("Page = %s\Sad Feedbacks = %s", key, value);
+            //console.log("Page = %s\Sad Feedbacks = %s", key, value);
         });
-        console.log("Worst page = %s, sads = %d", worstpage, worstpageratings);
+        //console.log("Worst page = %s, sads = %d", worstpage, worstpageratings);
         $('#worst-page').append(worstpage);
         $('#worst-page-reaction-count').append(worstpageratings);
     });
@@ -153,7 +153,7 @@ function mostVisitedPage() {
         $.each(data, function (key, value) {
             // Use a hashmap to tally the pages
             if (pagemap[value.docURI] == null) {
-                console.log("Adding [%s]", value.page);
+                //console.log("Adding [%s]", value.page);
                 pagemap[value.page] = 1;
             }
             else {
@@ -162,7 +162,7 @@ function mostVisitedPage() {
             }
         });
         $.each(pagemap, function (key, value) {
-            console.log("Page = %s\nPage views = %s", key, value);
+            //console.log("Page = %s\nPage views = %s", key, value);
         });
     });
 }
