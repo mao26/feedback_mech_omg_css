@@ -2,217 +2,130 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>INSPECTifi</title>
-    <meta name="description" content="Page scroll animation using CSS animate" />
-    <meta name="keywords" content="css animation, loading effect, animate, scroll loading, scroll animation" />
-    <meta name="author" content="Mario Oliver" />
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link href="public/css/analytics_style.css" rel="stylesheet">
-    <link href="public/css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
-    <!--Analytics dependencies -->
-    <script src="ifvisible.js"></script>
-    <!--Dependency of TimeMe.js-->
-    <script src="timeme.js"></script>
-    <!--Tracks time spent on page-->
-    <script src="fingerprint2.js"></script>
-    <script src="OMGCSSAnalytics.js"></script>
-    <script src="public/js/sentiment_analysis.js"></script>
-    <!-- D3 Web CDN -->
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <!-- jQuery Web CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <!-- D3 Word Cloud Script Files -->
-    <script src="public/js/d3.layout.cloud.js"></script>
-    
-    <!-- style for word cloud ONLY -->
-    <style>
-        .cloud {
-            font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>INSPECTifi</title>
+  <meta name="description" content="Page scroll animation using CSS animate" />
+  <meta name="keywords" content="css animation, loading effect, animate, scroll loading, scroll animation" />
+  <meta name="author" content="Mario Oliver" />
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link href="public/css/analytics_style.css" rel="stylesheet">
+  <link href="public/css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+  <!--Analytics dependencies -->
+  <script src="ifvisible.js"></script>
+  <!--Dependency of TimeMe.js-->
+  <script src="timeme.js"></script>
+  <!--Tracks time spent on page-->
+  <script src="fingerprint2.js"></script>
+  <script src="OMGCSSAnalytics.js"></script>
+  <script src="public/js/sentiment_analysis.js"></script>
+  <!-- D3 Web CDN -->
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <!-- jQuery Web CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- D3 Word Cloud Script Files -->
+  <script src="public/js/d3.layout.cloud.js"></script>
+
+  <!-- style for word cloud ONLY -->
+  <style>
+    .cloud {
+      font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
+    }
+  </style>
 
 </head>
 
 <body>
 
-    <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
-        <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
-            <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        </li>
-        <li><a href="analytics_dashboard_home.html" class="w3-hide-small w3-padding-large w3-hover-white">Home</a></li>
-        <li><a href="analytics_dashboard_feedback.html" class="w3-padding-large w3-white" id="click-button">Feedback</a></li>
-        <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Traffic</a></li>
-    </ul>
+  <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
+    <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+      <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    </li>
+    <li><a href="analytics_dashboard_home.html" class="w3-hide-small w3-padding-large w3-hover-white">Home</a></li>
+    <li><a href="analytics_dashboard_feedback.html" class="w3-padding-large w3-white" id="click-button">Feedback</a></li>
+    <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Traffic</a></li>
+  </ul>
 
 
-    <div class="container">
+  <div class="container">
 
-        <header class="top">
+    <header class="top">
 
-            <h1 class="site-title">User Feedback Analytics</h1>
-        </header>
+      <h1 class="site-title">User Feedback Analytics</h1>
+    </header>
+    <nav class="effects">
+      <ul>
+        <li> <a href="analytics_dashboard_feedback.html#cloud_div"> Wordcloud </a> </li>
+        <li> <a href="analytics_dashboard_feedback.html#sentiment_div">Sentiment Analysis </a> </li>
+        <li> <a href="#"> List </a> </li>
+      </ul>
+    </nav>
 
-        <nav class="effects">
-            <ul>
-                <li> <a href="analytics_dashboard_feedback.html#cloud_div"> Wordcloud </a> </li>
-                <li> <a href="analytics_dashboard_feedback.html#sentiment_div">Sentiment Analysis </a> </li>
-                <li> <a href="#" onclick="hitDB()"> List </a> </li>
-            </ul>
-        </nav>
+    <div class="post">
+      <span><img src="public/img/inspectify_logo_black.png" style="height: 100px"/> </span>
+      <h2> INSPECTifi </h2>
+      <p> Your user feedback and analytics software.</p>
+    </div>
 
-        <div class="post">
-            <span><img src="public/img/inspectify_logo_black.png" style="height: 100px"/> </span>
-            <h2> INSPECTifi </h2>
-            <p> Your user feedback and analytics software.</p>
-        </div>
-
-        <div class="post" id="cloud_div">
-            <script src="public/js/d3drawcloud.js"></script>
-
-        </div>
-
-        <div class="post" id="sentiment_div">
-            <script src="public/js/sentiment_bundle.js"></script>
-        </div>
-        
-        <div class="post_fromRight" id="list_div" position="relative" style="height : 1500px">
-        </div>
-
-
-        <footer class="footer" id="footer">
-            Created by <a href="#">OMG-CSS</a>
-
-        </footer>
+    <div class="post" id="cloud_div">
+      <h1>WordCloud</h1>
+      <script src="public/js/d3drawcloud.js"></script>
 
     </div>
 
+    <div class="post_fromRight" id="list_div" position="relative" style="height : 1500px">
+      <h1>User Sentiment</h1>
+    </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="public/js/viewportchecker.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            jQuery('.post').addClass("hidden").viewportChecker({
-                classToAdd: 'visible animated bounceInLeft', // Class to add to the elements when they are visible
-                offset: 100
-            });
-        });
-    </script>
 
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            jQuery('.post_fromRight').addClass("hidden").viewportChecker({
-                classToAdd: 'visible animated bounceInRight', // Class to add to the elements when they are visible
-                offset: 100
-            });
-        });
-    </script>
+    <footer class="footer" id="footer">
+      Created by <a href="#">OMG-CSS</a>
 
-    <script>
-        function hitDB() {
-            $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
-                var array = data;
-                var i;
-                var top_height;
-                var text_length = 0;
-                var doc_root = document.getElementById("list_div");
-                for (i = 0; i < array.length; i++) {
-                    console.log(array[i]);
-                    var comment_ui = document.createElement("div");
-                    var brek = document.createElement('br');
-                    comment_ui.setAttribute("id", "comment-ui-block");
-                    comment_ui.setAttribute("class", "comment-ui-block w3-round-xlarge w3-padding-250 w3-center");
-                    top_height = 60 * i;
-                    if (array[i].comment != null) {
-                        var comment_text = document.createElement("div");
-                        var text = "Comment: ";
-                        comment_text.textContent = text;
-                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
-                        comment_ui.appendChild(comment_text);
-                        var comment = document.createElement("span");
-                        comment.textContent = array[i].comment;
-                        comment.setAttribute("style", "color : grey !important");
-                        comment_text.appendChild(comment);
-                        text_length += text.length;
-                    }
-                    if (array[i].page != null) {
-                        var comment_text = document.createElement("div");
-                        var text = "Page: ";
-                        comment_text.textContent = text;
-                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
-                        comment_ui.appendChild(comment_text);
-                        var page = document.createElement("span");
-                        page.setAttribute("style", "color : grey !important");
-                        page.textContent = array[i].page;
-                        comment_text.appendChild(page);
-                        text_length += text.length;
-                    }
-                    /*  MAKE THE FOLLOWING DOM ELEMENTS    
-                    <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-                    <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-                    <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-                    */
-                    if (array[i].reaction != null) {
-                        var reaction = array[i].reaction;
-                        var img = document.createElement('i');
-                        if (reaction === "frown") {
-                            img.setAttribute("class", "fa fa-reaction fa-frown-o");
-                        }
-                        if (reaction === "meh") {
-                            img.setAttribute("class", "fa fa-reaction fa-meh-o");
-                        }
-                        if (reaction === "happy") {
-                            img.setAttribute("class", "fa fa-reaction fa-smile-o");
-                        }
-                        img.setAttribute("style", "font-weight: bold; color: black ");
-                        img.setAttribute("height", "150px");
-                        comment_ui.appendChild(img);
-                    }
-                    if (array[i].feedback != null) {
-                        var comment_text = document.createElement("div");
-                        var text = "Feedback: ";
-                        comment_text.textContent = text;
-                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
-                        comment_ui.appendChild(comment_text);
-                        var iDiv = document.createElement('span');
-                        iDiv.setAttribute("id", "feedback-block");
-                        iDiv.setAttribute("class", "feedback-block w3-round-xlarge w3-padding-250 w3-center");
-                        iDiv.setAttribute("width", "100px");
-                        iDiv.setAttribute("height", "300px");
-                        iDiv.setAttribute("style", "color : grey !important");
-                        comment_text.appendChild(iDiv);
-                        iDiv.textContent = array[i].feedback;
-                        text_length += text.length;
-                    }
-                    var height_to_add_for_text = (text_length / 100);
-                    if (height_to_add_for_text > 1) top_height += 60;
-                    if (height_to_add_for_text > 2) top_height += 120;
-                    console.log(text_length);
-                    console.log(height_to_add_for_text);
-                    if (i==1){
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:45%; margin-top: -25px");
-                    }
-                    else if (i % 2 == 0) { //if even
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center;  margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; right : 0; float: left; height: 200px; width: 45%; margin-right: 10px");
-                    } else { //if odd
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:45%");
-                    }
-                    doc_root.appendChild(comment_ui);
-                    doc_root.appendChild(brek);
-                }
-                //set the height of the parent div so that the appended list will fit inside of the list
-                doc_root.height += top_height + "px";
-            });
-        }
-    </script>
-    
+    </footer>
+
+  </div>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="public/js/viewportchecker.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('.post').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated bounceInLeft', // Class to add to the elements when they are visible
+        offset: 100
+      });
+    });
+  </script>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="public/js/viewportchecker.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('.post').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated bounceInLeft', // Class to add to the elements when they are visible
+        offset: 100
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('.post_fromRight').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated bounceInRight', // Class to add to the elements when they are visible
+        offset: 100
+      });
+    });
+  </script>
+
+  <script src="public/js/sentiment_bundle.js">
+  </script>
 </body>
 
 </html>
