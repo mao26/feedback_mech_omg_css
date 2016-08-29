@@ -39,12 +39,48 @@ a:hover {
 }
 
 /* SUMMARY */
+.summary-block{
+    display: inline-table;
+    width: 100%;
+}
+
+.summary-header{
+    border: 3px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    overflow: visible;
+}
+
+.left-summary{
+    width: 25%;
+    display: inline-block;
+    margin-right: 5%;
+    vertical-align: middle;
+}
+
+.right-summary{
+    width: 70%;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 #emoji-table td .fa{
     display: table;
-    font-size: 30px;
+    font-size: 50px;
     margin-right: auto;
     margin-left: auto;
+    color: white;
+}
+
+#emoji-table td{
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+#emoji-table p{
+    font-weight: bold;
+    color: white;
 }
 
 td > p{
@@ -62,12 +98,26 @@ td > p{
 }
 
 #best-worst-page-table tr, td, th{
-    border: 0.5px solid grey;
+    border: none;
+}
+
+
+#best-worst-page-table tr:nth-child(even){
+    background-color: #97CACE;
+    border-bottom: 1px solid white;
+    color: #267b82;
+}
+
+#best-worst-page-table tr:nth-child(odd){
+    background-color: #E6EFF0;
+    border-bottom: 1px solid white;
+    color: #267b82;
 }
 
 #best-worst-page-table th{
     background-color: #267b82;
     color: white;
+    
 }
 
 #best-worst-page-table td{
@@ -79,6 +129,10 @@ td > p{
 }
 
 /* Banner */
+.image-container{
+    background-color: black;
+}
+
 .background-img{
     height: 100%;
     width: 100%;
@@ -86,7 +140,6 @@ td > p{
     z-index:0;
     position: absolute;
     margin-top: -83px;
-    
 }
 
 .header-logo{
@@ -95,14 +148,24 @@ td > p{
     z-index: 0;
 }
 
+.social-link{
+    display: inline;
+    margin-right: 20px;
+    font-size: 25px;
+}
+
 .header-analyze{
     display: block;
     position: relative;
     z-index: 0;
 }
 
-.fa-reaction{
+.w3-xlarge{
     color: white;
+}
+
+.fa-reaction{
+    color: #267b82;
 }
 
 /* navbar */
@@ -111,5 +174,26 @@ td > p{
 }
 
 .headline{
-    color: #267b82;
+    color: black;
 }
+
+<<<<<<< HEAD
+.w3-btn{
+    color: aquamarine;
+}
+=======
+/* PAGE: TRAFFIC */
+.gcharts-thead {
+  border: 1px solid rgb(204, 204, 204);
+  background-color: rgb(233, 233, 233);
+}
+
+.gcharts-thead:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+.gcharts-thead th.gradient {
+  background-image: none;
+  padding: 7px;
+}
+>>>>>>> origin/master

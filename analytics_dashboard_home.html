@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>Analytics Dashboard</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
@@ -41,7 +42,8 @@
     <!-- puts our first set of divs (nav + revolvify) inside of a scrollable container -->
     <div style="height: 800px; position: relative">
         <div class=" w3-center w3-padding-128 w3-background" style="overflow-y:scroll; max-height:100%;">
-            <!-- Navbar --><img class="background-img" src="public/img/yosemite.jpg">
+            <!-- Navbar -->
+            <div class="image-container"></div><img class="background-img" src="public/img/yosemite.jpg">
             <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
                 <li class="w3-hide-medium w3-hide-large w3-opennav w3-right"> <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a> </li>
                 <li><a href="analytics_dashboard_home.html" class="w3-padding-large w3-white">Home</a></li>
@@ -57,8 +59,8 @@
             </div>
             <div class="w3-content w3-center w3-padding-250 w3-round-xlarge header-logo">
                 <br/>
-                <h1 class="w3-margin w3-jumbo" style="color: white;">INSPECTifi</h1> <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:170px">
-                <br/> </div>
+                <h1 class="w3-jumbo" style="color: white;">INSPECTifi</h1> <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:110px">
+                <br><br/> </div>
             <br/>
             <div class="post header-analyze">
                 <p class="w3-xlarge" style="color: white">Analyze how your users interact with your webpage</p>
@@ -80,74 +82,84 @@
     <div class="w3-row-padding w3-padding-64 w3-container post" id="grid-1">
         <div class="w3-content">
             <h1 class="headline">Summary</h1>
-            <table class="table" id="emoji-table">
-                <tbody>
-                    <tr>
-                        <td style="background-color: #FADDA7"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-                            <p>Total: <span id="reaction-total-1"></span> </p>
-                        </td>
-                        <td style="background-color: #F2CF8C"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-                            <p>Total: <span id="reaction-total-2"></span> </p>
-                        </td>
-                        <td style="background-color: #E6BD71"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-                            <p>Total: <span id="reaction-total-3"></span> </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <br>
+            <div class="summary-block">
+                <div class="left-summary">
+                    <p class="summary-header">REACTION TABLE</p>
+                </div>
+                <div class="right-summary">
+                    <table class="table" id="emoji-table">
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #C5E0E4"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                                    <p>Total: <span id="reaction-total-1"></span> </p>
+                                </td>
+                                <td style="background-color: #AFDBDE"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                                    <p>Total: <span id="reaction-total-2"></span> </p>
+                                </td>
+                                <td style="background-color: #97CACE"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                                    <p>Total: <span id="reaction-total-3"></span> </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <br>
             <br>
-            <table class="table table-bordered" id="best-worst-page-table">
-                <tbody>
-                    <tr>
-                        <th>Best Pages</th>
-                        <td>
-                            <div class="page-name" id="best-page"></div>
-                        </td>
-                        <td>
-                            <div class="page-emo-count"> <i id="best-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Worst Pages</th>
-                        <td>
-                            <div class="page-name" id="worst-page"></div>
-                        </td>
-                        <td>
-                            <div class="page-emo-count"> <i id="worst-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Most Rated</th>
-                        <td>
-                            <div class="page-name" id="most-rated-page"></div>
-                        </td>
-                        <td>
-                            <div class="page-emo-count"> <i id="most-rated-page-ratings" class="fa fa-reaction fa-meh-o"><span> </span></i> </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Most Visited</th>
-                        <td>
-                            <div></div>
-                        </td>
-                        <td>
-                            <div></div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <br>
+            <br>
+            <div class="summary-block">
+                <div class="left-summary">
+                    <p class="summary-header">PAGE TABLE</p>
+                </div>
+                <div class="right-summary">
+                    <table class="table table-bordered" id="best-worst-page-table">
+                        <tbody>
+                            <tr>
+                                <th>Best Pages</th>
+                                <td>
+                                    <div class="page-name" id="best-page"></div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="best-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Worst Pages</th>
+                                <td>
+                                    <div class="page-name" id="worst-page"></div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="worst-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Most Rated</th>
+                                <td>
+                                    <div class="page-name" id="most-rated-page"></div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="most-rated-page-ratings" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Second Grid -->
+<!--
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="grid-2">
         <div class="w3-content"> </div>
     </div>
+-->
     <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-        <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1> </div>
+        <h1 class="w3-margin w3-xlarge">Quote of the day: <div id="qotd"></div></h1> </div>
     <!-- Footer -->
-    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
-        <div class="w3-xlarge w3-padding-32"> <a href="#" class="w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a> <a href="#" class="w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a> <a href="#" class="w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a> <a href="#" class="w3-hover-text-grey"><i class="fa fa-flickr"></i></a> <a href="#" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a> </div>
+    <footer class="w3-container w3-padding-32 w3-center w3-opacity" style="bottom:0">
+        <div class="w3-xlarge w3-padding-32"> <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a> <a href="#" class="social-link w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a> <a href="#" class="social-link w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a> <a href="#" class="social-link w3-hover-text-grey"><i class="fa fa-flickr"></i></a> <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a> </div>
     </footer>
     <script>
         // Used to toggle the menu on small screens when clicking on the menu button
@@ -168,6 +180,16 @@
                 console.log(data)
             });
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+            /* Quotes of the Day */
+            var quotes = ["Just don't do it.", "Never give up (sometimes).", "Keep on keeping on.", "Never save for tomorrow, what you can spend today."];
+            var quotenum = Math.round((quotes.length - 1) * Math.random());
+            console.log("Quote Number: " + quotenum);
+            console.log("Quote: " + quotes[quotenum]);
+            $('#qotd').append(quotes[quotenum]);
+        });
     </script>
     <script src="public/js/analytics_dashboard_home_scripts.js"></script>
 </body>

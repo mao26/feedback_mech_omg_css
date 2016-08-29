@@ -1,4 +1,5 @@
 var sentiment = require('sentiment');
+
 console.log("hello sentiment");
 $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
     var i;
@@ -9,3 +10,4 @@ $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
         console.log(array[i].reaction);
     }
 });
+
