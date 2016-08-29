@@ -142,6 +142,14 @@ td > p{
     margin-top: -83px;
 }
 
+.background-img-footer{
+    height: 100%;
+    width: 100%;
+    display: block;
+    z-index:0;
+    position: absolute;
+}
+
 .header-logo{
     display: block;
     position: relative;
@@ -196,3 +204,14 @@ nav.effects ul li a:hover{
     background-color: black;
     color: white !important;
 }
+
+/*
+.footer-block{
+    background-color: white;
+    z-index:1;
+}
+
+footer .fa{
+    opacity: 1;
+    z-index: 100;
+}*/
