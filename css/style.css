@@ -148,9 +148,12 @@ button.rect-button {
   z-index: 1000;
   overflow: hidden;
 
+/*
   -webkit-box-shadow: 0 6px 4px -4px #C9C9C9;
   -moz-box-shadow: 0 6px 4px -4px #C9C9C9;
   box-shadow: 0 6px 4px -4px #C9C9C9;
+*/
+    outline: 2px solid white;
 }
 
 #feedback-widget:hover .fa-pencil-square-o {
