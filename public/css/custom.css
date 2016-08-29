@@ -192,4 +192,7 @@ td > p{
   padding: 7px;
 }
 
-nav.effects ul li a
+nav.effects ul li a:hover{
+    background-color: black;
+    color: white !important;
+}
