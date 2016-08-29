@@ -44,7 +44,7 @@ a:hover {
     font-size: 30px;
     margin-right: auto;
     margin-left: auto;
-    color: white;
+    color: #267b82;
 }
 
 td > p{
@@ -61,6 +61,10 @@ td > p{
     display: inline;
 }
 
+#emoji-table, #best-worst-page-table{
+    width: 80%;
+}
+
 #best-worst-page-table tr, td, th{
     border: none;
 }
@@ -69,13 +73,13 @@ td > p{
 #best-worst-page-table tr:nth-child(even){
     background-color: #97CACE;
     border-bottom: 1px solid white;
-    color: white;
+    color: #267b82;
 }
 
 #best-worst-page-table tr:nth-child(odd){
     background-color: #E6EFF0;
     border-bottom: 1px solid white;
-    color: white;
+    color: #267b82;
 }
 
 #best-worst-page-table th{
@@ -129,7 +133,7 @@ td > p{
 }
 
 .fa-reaction{
-    color: grey;
+    color: #267b82;
 }
 
 /* navbar */
@@ -138,5 +142,5 @@ td > p{
 }
 
 .headline{
-    color: #267b82;
+    color: black;
 }
