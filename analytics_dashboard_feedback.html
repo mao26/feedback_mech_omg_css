@@ -196,10 +196,13 @@
                     if (height_to_add_for_text > 2) top_height += 120;
                     console.log(text_length);
                     console.log(height_to_add_for_text);
-                    if (i % 2 == 0) { //if even
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; max-width : 300px; padding: 20px 20px 20px 20px; position: absolute; right : 0; top : " + top_height + "px");
+                    if (i==1){
+                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:45%; margin-top: -25px");
+                    }
+                    else if (i % 2 == 0) { //if even
+                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center;  margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; right : 0; float: left; height: 200px; width: 45%; margin-right: 10px");
                     } else { //if odd
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; max-width : 300px; padding: 20px 20px 20px 20px; position: absolute; left : 0; top : " + top_height + "px");
+                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:45%");
                     }
                     doc_root.appendChild(comment_ui);
                     doc_root.appendChild(brek);
