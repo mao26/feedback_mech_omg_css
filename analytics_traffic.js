@@ -28,16 +28,26 @@ function drawUserLocationMap() {
 
 function drawTable() {
   var jsonData = $.ajax({
-    url: "http://localhost:3000/api/v1/analytics/",
+    url: "http://localhost:3000/api/v1/analytics/charts/sessions",
     dataType: "json",
     async: false
     }).responseJSON;
 
   var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Name');
-  data.addColumn('number', 'Salary');
-  data.addColumn('boolean', 'Full Time Employee');
-  //data.addRows(jsonData["data"]);
+  data.addColumn('string', 'Country');
+  data.addColumn('number', 'Sessions');
+  data.addColumn('number', 'Avg. Page Time');
+  data.addColumn('number', 'Avg. Clicks');
+
+  for (obj in jsonData) {
+    var flatTime = jsonData[obj].pagetime.reduce((a, b) => a.concat(b), []);
+    var flatClicks = jsonData[obj].clicks.reduce((a, b) => a.concat(b), []);
+
+    var avgTime = flatTime.reduce((a, b) => a + b, 0) / flatTime.length;
+    var avgClicks = flatClicks.reduce((a, b) => a + b, 0) / flatClicks.length;
+
+    data.addRow([jsonData[obj]._id, jsonData[obj].sessionuids.length, avgTime, avgClicks]);
+  }
 
   var options = {};
   options['cssClassNames'] = {headerRow: 'gcharts-thead'};
@@ -50,9 +60,10 @@ function drawTable() {
   table.draw(data, options);
 }
 
+
 function drawSessionPageviewChart() {
   var jsonData = $.ajax({
-    url: "http://localhost:3000/api/v1/analytics/charts/sessions",
+    url: "http://localhost:3000/api/v1/analytics/charts/sessionsfreq",
     dataType: "json",
     async: false
     }).responseJSON;
@@ -62,9 +73,8 @@ function drawSessionPageviewChart() {
   data.addColumn('number', 'Sessions');
   data.addColumn('number', 'Pageviews');
 
-  console.log(jsonData);
+  jsonData.sort(function(a, b) {return (a._id > b._id) ? 1 : ((b._id > a._id) ? -1 : 0);});
   for (day in jsonData) {
-    console.log(jsonData[day]);
     data.addRow([jsonData[day]._id, jsonData[day]['session-uids'].length, jsonData[day].count]);
   }
 
