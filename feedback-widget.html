@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Feedback Widget</title>
-
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link href="css/style.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <!--Analytics dependencies -->
-  <script src="ifvisible.js"></script>
-  <!--Dependency of TimeMe.js-->
-  <script src="timeme.js"></script>
-  <!--Tracks time spent on page-->
-  <script src="fingerprint2.js"></script>
-  <script src="OMGCSSAnalytics.js"></script>
+    <meta charset="utf-8">
+    <title>Feedback Widget</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--Analytics dependencies -->
+    <script src="ifvisible.js"></script>
+    <!--Dependency of TimeMe.js-->
+    <script src="timeme.js"></script>
+    <!--Tracks time spent on page-->
+    <script src="fingerprint2.js"></script>
+    <script src="OMGCSSAnalytics.js"></script>
 </head>
-<body>
-  <div class="feedback-module">
-    <button class="circle-button" id="feedback-widget">
-      <div class="item">
-        <i id="widget-icon" class="fa fa-comment-o" aria-hidden="true"></i>
-        <p id="provide_feedback" style="display: none">
-          Provide Feedback
-          <i id="feedback-close" class="fa fa-times" aria-hidden="true"></i>
-        </p>
-      </div>
-    </button>
-    <form onsubmit="return false;">
-      <div class="reaction-bar">
-        <p>Rating:</p>
-        <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-        <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-        <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-      </div>
 
-      <p>General Feedback?</p>
-      <textarea id="feedback" type="text" rows='3' value={this.state.value} onChange={this.handleChange}></textarea>
-      <p class="small">This information will be reported on GitHub where it will be publicly visible. You can review all reported feedback on our GitHub page.</p>
-      <button id="feedback-submit-btn" class="btn-default">Submit</button>
-    </form>
-  </div>
-
-  <script src="widget.js"></script>
+<body> <img style="width:100%" src="./public/img/recgov.png">
+    <div class="feedback-module">
+        <button class="circle-button" id="feedback-widget">
+            <div class="item"> <i id="widget-icon" class="fa fa-comment-o" aria-hidden="true"></i>
+                <p id="provide_feedback" style="display: none"> Provide Feedback <i id="feedback-close" class="fa fa-times" aria-hidden="true"></i> </p>
+            </div>
+        </button>
+        <form onsubmit="return false;">
+            <div class="reaction-bar">
+                <p>Rating:</p> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i> </div>
+            <p>General Feedback?</p>
+            <textarea id="feedback" type="text" rows='3' value={this.state.value} onChange={this.handleChange}></textarea>
+            <p class="small">This information will be reported on GitHub where it will be publicly visible. You can review all reported feedback on our GitHub page.</p>
+            <button id="feedback-submit-btn" class="btn-default">Submit</button>
+        </form>
+    </div>
+    <script src="widget.js"></script>
 </body>
+
 </html>
