@@ -59,21 +59,18 @@
             </div>
             <div class="w3-content w3-center w3-padding-250 w3-round-xlarge header-logo">
                 <br/>
-                <h1 class="w3-jumbo" style="color: white;">INSPECTifi</h1> <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:110px">
-                <br><br/> </div>
+                <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:110px">
+                <h1 class="w3-margin w3-jumbo" style="color: white;">INSPECTifi</h1> 
+                <h3 style="color: white">- Inspectify is your one-stop shop for your feedback and user website traffic -</h3>
+                <br/> </div>
             <br/>
             <div class="post header-analyze">
-                <p class="w3-xlarge" style="color: white">Analyze how your users interact with your webpage</p>
+                <p class="w3-xlarge" style="color: white">See what users are saying about your website</p>
                 <button class="w3-btn w3-white w3-padding-16 w3-margin-top" onclick="hitDB()">Get Started</button>
             </div>
             <br/>
             <div class="post">
-                <p class="w3-xlarge" style="color: white">Analyze how your users interact with your webpage</p>
-                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" onclick="hitDB()">Get Started</button>
-            </div>
-            <br/>
-            <div class="post">
-                <p class="w3-xlarge" style="color: white">Analyze how your users interact with your webpage</p>
+                <p class="w3-xlarge" style="color: white">Analyze how your users visit your webpage</p>
                 <button class="w3-btn w3-white w3-padding-16 w3-margin-top" onclick="hitDB()">Get Started</button>
             </div>
         </div>
@@ -91,7 +88,7 @@
                     <table class="table" id="emoji-table">
                         <tbody>
                             <tr>
-                                <td style="background-color: #C5E0E4"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                                <td style="background-color: #E6EFF0"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
                                     <p>Total: <span id="reaction-total-1"></span> </p>
                                 </td>
                                 <td style="background-color: #AFDBDE"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
@@ -105,7 +102,6 @@
                     </table>
                 </div>
             </div>
-            <br>
             <br>
             <br>
             <br>
@@ -143,6 +139,15 @@
                                     <div class="page-emo-count"> <i id="most-rated-page-ratings" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
                                 </td>
                             </tr>
+                            <tr>
+                                <th>Most Visited</th>
+                                <td>
+                                    <div class="page-name">index.html</div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i> </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -150,11 +155,9 @@
         </div>
     </div>
     <!-- Second Grid -->
-<!--
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="grid-2">
         <div class="w3-content"> </div>
     </div>
--->
     <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
         <h1 class="w3-margin w3-xlarge">Quote of the day: <div id="qotd"></div></h1> </div>
     <!-- Footer -->
