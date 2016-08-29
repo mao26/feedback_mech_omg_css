@@ -58,7 +58,7 @@
             </div>
             <div class="w3-content w3-center w3-padding-250 w3-round-xlarge header-logo">
                 <br/>
-                <h1 class="w3-margin w3-jumbo" style="color: white;">INSPECTifi</h1> <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:170px">
+                <h1 class="w3-margin w3-jumbo" style="color: white;">INSPECTifi</h1> <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:110px">
                 <br/> </div>
             <br/>
             <div class="post header-analyze">
@@ -81,36 +81,33 @@
     <div class="w3-row-padding w3-padding-64 w3-container post" id="grid-1">
         <div class="w3-content">
             <h1 class="headline">Summary</h1>
-            <br>
             <div class="summary-block">
                 <div class="left-summary">
-                    <p class="summary-header">REACTION SUMMARY</p>
+                    <p class="summary-header">REACTION TABLE</p>
                 </div>
                 <div class="right-summary">
                     <table class="table" id="emoji-table">
                         <tbody>
                             <tr>
-                                <td style="background-color: #267b82; border-right: 1px solid white"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                                <td style="background-color: #E6EFF0"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
                                     <p>Total: <span id="reaction-total-1"></span> </p>
                                 </td>
-                                <td style="background-color: #267b82; border-right: 1px solid white"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                                <td style="background-color: #AFDBDE"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
                                     <p>Total: <span id="reaction-total-2"></span> </p>
                                 </td>
-                                <td style="background-color: #267b82; border-right: 1px solid white"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                                <td style="background-color: #97CACE"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
                                     <p>Total: <span id="reaction-total-3"></span> </p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <br>
-                <br>
-                <br> 
-                <br>
             </div>
+            <br>
+            <br>
             <div class="summary-block">
                 <div class="left-summary">
-                    <p class="summary-header">PAGE SUMMARY</p>
+                    <p class="summary-header">PAGE TABLE</p>
                 </div>
                 <div class="right-summary">
                     <table class="table table-bordered" id="best-worst-page-table">
@@ -189,15 +186,15 @@
     </script>
     <script>
         /* Quote of the Day (doesnt work - CORS issue)
-                                $.ajax({
-                                    url: 'https://quotes.rest/qod.js'
-                                    , dataType: 'jsonp'
-                                    , success: function (data) {
-                                        console.log("Quote: " + data.quote);
-                                        console.log("Author: " + data.author);
-                                    }
-                                });
-                                */
+                        $.ajax({
+                            url: 'https://quotes.rest/qod.js'
+                            , dataType: 'jsonp'
+                            , success: function (data) {
+                                console.log("Quote: " + data.quote);
+                                console.log("Author: " + data.author);
+                            }
+                        });
+                        */
     </script>
     <script src="public/js/analytics_dashboard_home_scripts.js"></script>
 </body>
