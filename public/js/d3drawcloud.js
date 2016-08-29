@@ -1,11 +1,10 @@
 // When the document is loaded, query the server for feedback
 $(document).ready(function () {
-    console.log("DOM loaded")
+    //console.log("DOM loaded")
     queryForFeedback();
 });
 // Query the server for feedback and assemble the wordcloud
 function queryForFeedback() {
-
     //Submit an  request for the feedback
     $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
         // Callback function concatenates all feedback into one string
@@ -15,9 +14,10 @@ function queryForFeedback() {
         });
         // Once the feedback comments are aggregated
         //  process them into a frequency list
+        aggComments = aggComments.replace(/(\r\n|\n|\r)/gm, "").toLowerCase();
+        aggComments = aggComments.replace(/,|!|\./g, "");
         createFrequencyList(aggComments);
     });
-
     // OLD WAY FOR LOCAL REQUESTS --
     // Submit an ajax request for the feedback
     //  $.ajax({
@@ -39,25 +39,28 @@ function queryForFeedback() {
 // Function to create an array of frequency objects
 function createFrequencyList(words) {
     var wordarray = words.split(" "); // Tokenize the string into an array
-    console.log("Feedback consists of [%d] words.", words.length);
-    console.log(words);
+    //console.log("Feedback consists of [%d] words.", words.length);
+    //console.log(words);
     var freqlist = []; // The frequency list is an array of objects
     // Iterate over the word array and push to the frequency list
     for (var i = 0; i < wordarray.length; i++) {
-        if (wordarray[i].length > 2 && typeof wordarray[i] !== "undefined") { // ignore words less than 4 characters
+        if (wordarray[i].length > 3 && typeof wordarray[i] !== "undefined") { // ignore words less than 4 characters
             if (!wordExists(freqlist, wordarray[i])) { // add new words to the freq list
-                console.log("[%s] not in freqlist, pushing...", wordarray[i]);
+                //console.log("[%s] not in freqlist, pushing...", wordarray[i]);
                 freqlist.push({
-                    "text": wordarray[i],
-                    "size": 20
+                    "text": wordarray[i]
+                    , "size": 20
                 });
-            } else { // increment size of existing words
-                console.log("[%s] already exists in freqlist", wordarray[i]);
+            }
+            else { // increment size of existing words
+                //console.log("[%s] already exists in freqlist", wordarray[i]);
                 // Find the word in the array
                 for (var j = 0; j < freqlist.length; j++) {
                     if (freqlist[j].text == wordarray[i]) {
                         //console.log("Found [%s], curr size = [%d]", wordarray[i], freqlist[j].size);
-                        freqlist[j].size *= 2;
+                        if (freqlist[j].size < 100) {
+                            freqlist[j].size += 2;
+                        }
                     }
                 }
                 // for (var i = 0; i < freqlist.length; i++) {
@@ -68,7 +71,17 @@ function createFrequencyList(words) {
             }
         }
     }
-    displayWordCloud(freqlist);
+    // Sort the frequency list from largest to smallest
+    freqlist = freqlist.sort(function (a, b) {
+        return b.size - a.size;
+    });
+    /*
+    console.log("Displaying frequency list...");
+    for (var a = 0; a < freqlist.length; a++) {
+        console.log("Word: [%s] - Freq: [%d]", freqlist[a].text, freqlist[a].size)
+    }
+    */
+    displayWordCloud(freqlist.slice(0, 25));
     //console.log(freqlist);
 }
 // Function to check if the word is in the frequency list already
