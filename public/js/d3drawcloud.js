@@ -14,6 +14,8 @@ function queryForFeedback() {
         });
         // Once the feedback comments are aggregated
         //  process them into a frequency list
+        aggComments = aggComments.replace(/(\r\n|\n|\r)/gm, "").toLowerCase();
+        aggComments = aggComments.replace(/,|!|\./g, "");
         createFrequencyList(aggComments);
     });
     // OLD WAY FOR LOCAL REQUESTS --
@@ -42,7 +44,7 @@ function createFrequencyList(words) {
     var freqlist = []; // The frequency list is an array of objects
     // Iterate over the word array and push to the frequency list
     for (var i = 0; i < wordarray.length; i++) {
-        if (wordarray[i].length > 2 && typeof wordarray[i] !== "undefined") { // ignore words less than 4 characters
+        if (wordarray[i].length > 3 && typeof wordarray[i] !== "undefined") { // ignore words less than 4 characters
             if (!wordExists(freqlist, wordarray[i])) { // add new words to the freq list
                 //console.log("[%s] not in freqlist, pushing...", wordarray[i]);
                 freqlist.push({
@@ -56,7 +58,9 @@ function createFrequencyList(words) {
                 for (var j = 0; j < freqlist.length; j++) {
                     if (freqlist[j].text == wordarray[i]) {
                         //console.log("Found [%s], curr size = [%d]", wordarray[i], freqlist[j].size);
-                        freqlist[j].size *= 2;
+                        if (freqlist[j].size < 100) {
+                            freqlist[j].size += 2;
+                        }
                     }
                 }
                 // for (var i = 0; i < freqlist.length; i++) {
@@ -67,7 +71,17 @@ function createFrequencyList(words) {
             }
         }
     }
-    displayWordCloud(freqlist);
+    // Sort the frequency list from largest to smallest
+    freqlist = freqlist.sort(function (a, b) {
+        return b.size - a.size;
+    });
+    /*
+    console.log("Displaying frequency list...");
+    for (var a = 0; a < freqlist.length; a++) {
+        console.log("Word: [%s] - Freq: [%d]", freqlist[a].text, freqlist[a].size)
+    }
+    */
+    displayWordCloud(freqlist.slice(0, 25));
     //console.log(freqlist);
 }
 // Function to check if the word is in the frequency list already
