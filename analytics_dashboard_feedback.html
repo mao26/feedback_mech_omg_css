@@ -64,7 +64,7 @@
             <ul>
                 <li> <a href="#"> Wordcloud </a> </li>
                 <li> <a href="#">Sentiment Analysis </a> </li>
-                <li> <a href="#" onclick="hitDB()"> List </a> </li>
+                <li> <a href="#"> List </a> </li>
             </ul>
         </nav>
 
@@ -116,7 +116,7 @@
     </script>
 
     <script>
-        function hitDB() {
+        $(document).ready(function(){
             $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
                 var array = data;
                 var i;
@@ -128,17 +128,17 @@
                     var comment_ui = document.createElement("div");
                     var brek = document.createElement('br');
                     comment_ui.setAttribute("id", "comment-ui-block");
-                    comment_ui.setAttribute("class", "comment-ui-block w3-round-xlarge w3-padding-250 w3-center");
+                    comment_ui.setAttribute("class", "comment-ui-block w3-padding-250 w3-center");
                     top_height = 60 * i;
                     if (array[i].comment != null) {
                         var comment_text = document.createElement("div");
                         var text = "Comment: ";
                         comment_text.textContent = text;
-                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
+                        comment_text.setAttribute("style", "font-weight: bold; color: #267b82 ");
                         comment_ui.appendChild(comment_text);
                         var comment = document.createElement("span");
                         comment.textContent = array[i].comment;
-                        comment.setAttribute("style", "color : grey !important");
+                        comment.setAttribute("style", "color: #4b4b4b !important");
                         comment_text.appendChild(comment);
                         text_length += text.length;
                     }
@@ -146,10 +146,10 @@
                         var comment_text = document.createElement("div");
                         var text = "Page: ";
                         comment_text.textContent = text;
-                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
+                        comment_text.setAttribute("style", "font-weight: bold; color: #267b82");
                         comment_ui.appendChild(comment_text);
                         var page = document.createElement("span");
-                        page.setAttribute("style", "color : grey !important");
+                        page.setAttribute("style", "color : #4b4b4b !important");
                         page.textContent = array[i].page;
                         comment_text.appendChild(page);
                         text_length += text.length;
@@ -171,22 +171,21 @@
                         if (reaction === "happy") {
                             img.setAttribute("class", "fa fa-reaction fa-smile-o");
                         }
-                        img.setAttribute("style", "font-weight: bold; color: black ");
-                        img.setAttribute("height", "150px");
+                        img.setAttribute("style", "font-weight: bold; color: #267b82; font-size: 40px; padding: 10px;");
                         comment_ui.appendChild(img);
                     }
                     if (array[i].feedback != null) {
                         var comment_text = document.createElement("div");
                         var text = "Feedback: ";
                         comment_text.textContent = text;
-                        comment_text.setAttribute("style", "font-weight: bold; color: black ");
+                        comment_text.setAttribute("style", "font-weight: bold; color: #267b82");
                         comment_ui.appendChild(comment_text);
                         var iDiv = document.createElement('span');
                         iDiv.setAttribute("id", "feedback-block");
                         iDiv.setAttribute("class", "feedback-block w3-round-xlarge w3-padding-250 w3-center");
                         iDiv.setAttribute("width", "100px");
                         iDiv.setAttribute("height", "300px");
-                        iDiv.setAttribute("style", "color : grey !important");
+                        iDiv.setAttribute("style", "color : #4b4b4b !important");
                         comment_text.appendChild(iDiv);
                         iDiv.textContent = array[i].feedback;
                         text_length += text.length;
@@ -197,12 +196,12 @@
                     console.log(text_length);
                     console.log(height_to_add_for_text);
                     if (i==1){
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:45%; margin-top: -25px");
+                        comment_ui.setAttribute("style", "background : #E6EFF0; text-align:center; margin-bottom: 15px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:48%; margin-top: -25px; overflow: scroll");
                     }
                     else if (i % 2 == 0) { //if even
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center;  margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; right : 0; float: left; height: 200px; width: 45%; margin-right: 10px");
+                        comment_ui.setAttribute("style", "background : #E6EFF0; text-align:center;  margin-bottom: 15px; padding: 20px 20px 20px 20px; position: relative; right : 0; float: left; height: 200px; width: 48%; margin-right: 10px; overflow: scroll");
                     } else { //if odd
-                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; margin-bottom: 10px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:45%");
+                        comment_ui.setAttribute("style", "background : #E6EFF0; text-align:center; margin-bottom: 15px; padding: 20px 20px 20px 20px; position: relative; left : 0; float: right; height: 200px; width:48%; overflow: scroll");
                     }
                     doc_root.appendChild(comment_ui);
                     doc_root.appendChild(brek);
@@ -210,7 +209,7 @@
                 //set the height of the parent div so that the appended list will fit inside of the list
                 doc_root.height += top_height + "px";
             });
-        }
+        })
     </script>
     
 </body>
