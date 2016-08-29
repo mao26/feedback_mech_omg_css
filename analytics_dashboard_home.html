@@ -10,7 +10,6 @@
     <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet">
     <link href="public/css/demo.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link href="public/css/analytics_style.css" rel="stylesheet">
     <link href="public/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -58,20 +57,20 @@
                 </ul>
             </div>
             <div class="w3-content w3-center w3-padding-250 w3-round-xlarge header-logo">
-                <br/>
-                <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:110px">
-                <h1 class="w3-margin w3-jumbo" style="color: white;">INSPECTifi</h1> 
-                <h3 style="color: white">- Inspectify is your one-stop shop for your feedback and user website traffic -</h3>
+                <br/> <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:110px">
+                <h1 class="w3-margin w3-jumbo" style="color: white;">INSPECTifi</h1>
+                <h3 style="color: white">- Inspectify is your one-stop shop for analysis and sythesis. View user feedback,
+                    website traffic, and more with this detailed dashboard -</h3>
                 <br/> </div>
             <br/>
             <div class="post header-analyze">
                 <p class="w3-xlarge" style="color: white">See what users are saying about your website</p>
-                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" onclick="hitDB()">Get Started</button>
+                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" id="feedback-button">Get Started</button>
             </div>
             <br/>
             <div class="post">
                 <p class="w3-xlarge" style="color: white">Analyze how your users visit your webpage</p>
-                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" onclick="hitDB()">Get Started</button>
+                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" id="traffic-button">Get Started</button>
             </div>
         </div>
     </div>
@@ -193,6 +192,14 @@
             console.log("Quote: " + quotes[quotenum]);
             $('#qotd').append(quotes[quotenum]);
         });
+    </script>
+    <script>
+        document.getElementById("feedback-button").onclick = function () {
+            location.href = "./analytics_dashboard_feedback.html";
+        };
+        document.getElementById("traffic-button").onclick = function () {
+            location.href = "./analytics_dashboard_traffic.html";
+        };
     </script>
     <script src="public/js/analytics_dashboard_home_scripts.js"></script>
 </body>
