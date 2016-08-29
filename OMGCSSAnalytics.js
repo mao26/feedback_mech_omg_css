@@ -16,12 +16,14 @@ On page unload, the object(s) are sent to the DB
 
 /*-------------------------------Variables--------------------------------*/
 //global Variables
+var hasVisited = "false";
 var clientIP = "";
 var clientUID = "";
 var geoAPIkey = "https://freegeoip.net/json/";
 var ipRequestServer = "http://54.183.84.147:3000/api/v1/ip";
 var url_userdata = "http://54.183.84.147:3000/api/v1/analytics";
 var url_timedata = "http://54.183.84.147:3000/api/v1/analytics/time";
+var url_hasVisited = ""
 
 //Empty object to return to DB
 var UserObject = {
@@ -47,9 +49,11 @@ $(document).ready(function starterFunction() {
 	TimeMe.setIdleDurationInSeconds(15);
 	TimeMe.setCurrentPageName(window.parent.location.href);
 	TimeMe.initialize();
-	//run asynchronous commands to get geo and ip information
+
+	//run asynchronous commands to get geo, ip, visitation information
 	getClientIPGEO(ipRequestServer, geoAPIkey);
 	getFingerprint();
+	hasVisited = getVisitedStatus();
 	//More stuff!
 	PageObject.docreferrer = getDocumentReferrer();
 	PageObject.docURI = getDocumentURI();
@@ -60,7 +64,13 @@ $(window).unload(function () {
 	PageObject.timeonpage = TimeMe.js.getTimeOnCurrentPageInSeconds();
 	PageObject.timestamp = getTimeStamp();
 
+//If user has visited the site recently, don't sent geolocation information info
+
+if (hasVisited === "false"){
 	$.post(url_userdata, UserObject)
+}
+
+//Send per session anaytics data
 	$.post(url_timedata, PageObject)
 });
 
@@ -73,6 +83,14 @@ function getDocumentReferrer() {
 //getDocumentURI returns the URI of the current page
 function getDocumentURI() {
 	return window.parent.location.href;
+}
+
+//Queries database to see if a visitor has been at the site before
+function getVisitedStatus(){
+$.get(url_hasVisited, function getStatus(status) {
+	return status;
+	console.log('Has visited before? '+status);
+	});
 }
 
 //Gets client IP address from custom server, then uses that to get geolocation info
@@ -125,14 +143,3 @@ function getTimeStamp() {
   }
   return date.join("/") + " " + time.join(":") + " " + suffix;
 }
-
-//Creates a unique string for a UUID with reg expression. Different per page visit.
-/*
-function createFakeGuid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0
-            , v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}
-*/
