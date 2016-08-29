@@ -21,7 +21,7 @@ p {
 	color: #333;
 /*	font-family: 'Noto Serif';*/
 	font-size: 20px;
-	line-height: 54px;
+/*	line-height: 54px;*/
 }
 
 a {
@@ -177,11 +177,6 @@ td > p{
     color: black;
 }
 
-<<<<<<< HEAD
-.w3-btn{
-    color: aquamarine;
-}
-=======
 /* PAGE: TRAFFIC */
 .gcharts-thead {
   border: 1px solid rgb(204, 204, 204);
@@ -196,4 +191,5 @@ td > p{
   background-image: none;
   padding: 7px;
 }
->>>>>>> origin/master
+
+nav.effects ul li a
