@@ -807,7 +807,6 @@ module.exports = function (input) {
 },{}],5:[function(require,module,exports){
 var sentiment = require('sentiment');
 var array;
-
 $(document).ready(function () {
   $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
     var array = data;
@@ -815,8 +814,6 @@ $(document).ready(function () {
     var top_height;
     var text_length = 0;
     var doc_root = document.getElementById("list_div");
-    var sentiment_table = document.getElementById("sentiment-score");
-    sentiment_table.textContent = "new content";
     for (i = 0; i < array.length; i++) {
       console.log(array[i]);
       var comment_ui = document.createElement("div");
