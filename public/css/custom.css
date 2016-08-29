@@ -39,12 +39,47 @@ a:hover {
 }
 
 /* SUMMARY */
+.summary-block{
+    display: inline-table;
+    width: 100%;
+}
+
+.summary-header{
+    border: 3px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.left-summary{
+    width: 25%;
+    display: inline-block;
+    margin-right: 5%;
+    vertical-align: middle;
+}
+
+.right-summary{
+    width: 70%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 #emoji-table td .fa{
     display: table;
-    font-size: 30px;
+    font-size: 50px;
     margin-right: auto;
     margin-left: auto;
-    color: #267b82;
+    color: white;
+}
+
+#emoji-table td{
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+#emoji-table p{
+    font-weight: bold;
+    color: white;
 }
 
 td > p{
@@ -59,10 +94,6 @@ td > p{
 
 .page-emo-count{
     display: inline;
-}
-
-#emoji-table, #best-worst-page-table{
-    width: 80%;
 }
 
 #best-worst-page-table tr, td, th{
@@ -143,4 +174,19 @@ td > p{
 
 .headline{
     color: black;
+}
+
+/* PAGE: TRAFFIC */
+.gcharts-thead {
+  border: 1px solid rgb(204, 204, 204);
+  background-color: rgb(233, 233, 233);
+}
+
+.gcharts-thead:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+.gcharts-thead th.gradient {
+  background-image: none;
+  padding: 7px;
 }
