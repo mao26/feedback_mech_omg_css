@@ -39,12 +39,12 @@ a:hover {
 }
 
 /* SUMMARY */
-
 #emoji-table td .fa{
     display: table;
     font-size: 30px;
     margin-right: auto;
     margin-left: auto;
+    color: white;
 }
 
 td > p{
@@ -62,12 +62,26 @@ td > p{
 }
 
 #best-worst-page-table tr, td, th{
-    border: 0.5px solid grey;
+    border: none;
+}
+
+
+#best-worst-page-table tr:nth-child(even){
+    background-color: #97CACE;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#best-worst-page-table tr:nth-child(odd){
+    background-color: #E6EFF0;
+    border-bottom: 1px solid white;
+    color: white;
 }
 
 #best-worst-page-table th{
     background-color: #267b82;
     color: white;
+    
 }
 
 #best-worst-page-table td{
@@ -79,6 +93,10 @@ td > p{
 }
 
 /* Banner */
+.image-container{
+    background-color: black;
+}
+
 .background-img{
     height: 100%;
     width: 100%;
@@ -86,7 +104,6 @@ td > p{
     z-index:0;
     position: absolute;
     margin-top: -83px;
-    
 }
 
 .header-logo{
@@ -95,14 +112,24 @@ td > p{
     z-index: 0;
 }
 
+.social-link{
+    display: inline;
+    margin-right: 20px;
+    font-size: 25px;
+}
+
 .header-analyze{
     display: block;
     position: relative;
     z-index: 0;
 }
 
-.fa-reaction{
+.w3-xlarge{
     color: white;
+}
+
+.fa-reaction{
+    color: grey;
 }
 
 /* navbar */
