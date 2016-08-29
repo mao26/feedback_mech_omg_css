@@ -49,6 +49,7 @@ a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
     color: black;
+    overflow: visible;
 }
 
 .left-summary{
@@ -174,4 +175,8 @@ td > p{
 
 .headline{
     color: black;
+}
+
+.w3-btn{
+    color: aquamarine;
 }
