@@ -23,6 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- D3 Word Cloud Script Files -->
     <script src="public/js/d3.layout.cloud.js"></script>
+    
     <!-- style for word cloud ONLY -->
     <style>
         .cloud {
@@ -54,7 +55,7 @@
         <nav class="effects">
             <ul>
                 <li> <a href="#"> Wordcloud </a> </li>
-                <li> <a href="#"> Sentiment Analysis </a> </li>
+                <li> <a href="#">Sentiment Analysis </a> </li>
                 <li> <a href="#" onclick="hitDB()"> List </a> </li>
             </ul>
         </nav>
@@ -65,12 +66,16 @@
             <p> Your user feedback and analytics software.</p>
         </div>
 
-        <div class="post_fromRight" id="list_div">
-        </div>
-
         <div class="post" id="cloud_div">
             <script src="public/js/d3drawcloud.js"></script>
 
+        </div>
+
+        <div class="post" id="sentiment_div">
+            <script src="public/js/sentiment_bundle.js"></script>
+        </div>
+        
+        <div class="post_fromRight" id="list_div" position="relative" style="height : 1500px">
         </div>
 
 
@@ -92,6 +97,7 @@
             });
         });
     </script>
+
     <script type="text/javascript">
         jQuery(document).ready(function () {
             jQuery('.post_fromRight').addClass("hidden").viewportChecker({
@@ -106,15 +112,16 @@
             $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
                 var array = data;
                 var i;
+                var top_height;
+                var text_length = 0;
+                var doc_root = document.getElementById("list_div");
                 for (i = 0; i < array.length; i++) {
                     console.log(array[i]);
-                    var doc_root = document.getElementById("list_div");
                     var comment_ui = document.createElement("div");
                     var brek = document.createElement('br');
                     comment_ui.setAttribute("id", "comment-ui-block");
                     comment_ui.setAttribute("class", "comment-ui-block w3-round-xlarge w3-padding-250 w3-center");
-                    comment_ui.setAttribute("style", "border-style: solid; border-color: #267b82; border-width: 5px; text-align:center; max-width : 300px");
-                    doc_root.appendChild(comment_ui);
+                    top_height = 60 * i;
                     if (array[i].comment != null) {
                         var comment_text = document.createElement("div");
                         var text = "Comment: ";
@@ -125,6 +132,7 @@
                         comment.textContent = array[i].comment;
                         comment.setAttribute("style", "color : grey !important");
                         comment_text.appendChild(comment);
+                        text_length += text.length;
                     }
                     if (array[i].page != null) {
                         var comment_text = document.createElement("div");
@@ -136,13 +144,15 @@
                         page.setAttribute("style", "color : grey !important");
                         page.textContent = array[i].page;
                         comment_text.appendChild(page);
+                        text_length += text.length;
                     }
+                    /*  MAKE THE FOLLOWING DOM ELEMENTS    
+                    <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                    <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                    <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                    */
                     if (array[i].reaction != null) {
                         var reaction = array[i].reaction;
-                        /*      <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-                                <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-                                <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-                        */
                         var img = document.createElement('i');
                         if (reaction === "frown") {
                             img.setAttribute("class", "fa fa-reaction fa-frown-o");
@@ -154,8 +164,7 @@
                             img.setAttribute("class", "fa fa-reaction fa-smile-o");
                         }
                         img.setAttribute("style", "font-weight: bold; color: black ");
-                        img.setAttribute("height", "50px");
-                        img.setAttribute("width", "50px");
+                        img.setAttribute("height", "150px");
                         comment_ui.appendChild(img);
                     }
                     if (array[i].feedback != null) {
@@ -172,15 +181,25 @@
                         iDiv.setAttribute("style", "color : grey !important");
                         comment_text.appendChild(iDiv);
                         iDiv.textContent = array[i].feedback;
-
+                        text_length += text.length;
                     }
+                    var height_to_add_for_text = (text_length / 100);
+                    if (height_to_add_for_text > 1) top_height += 60;
+                    if (height_to_add_for_text > 2) top_height += 120;
+                    console.log(text_length);
+                    console.log(height_to_add_for_text);
+                    if (i % 2 == 0) { //if even
+                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; max-width : 300px; padding: 20px 20px 20px 20px; position: absolute; right : 0; top : " + top_height + "px");
+                    } else { //if odd
+                        comment_ui.setAttribute("style", "border-style: solid; background : lightgrey; border-color: #267b82; border-width: 5px; text-align:center; max-width : 300px; padding: 20px 20px 20px 20px; position: absolute; left : 0; top : " + top_height + "px");
+                    }
+                    doc_root.appendChild(comment_ui);
                     doc_root.appendChild(brek);
                 }
+                //set the height of the parent div so that the appended list will fit inside of the list
+                doc_root.height += top_height + "px";
             });
         }
-    </script>
-
-    <script src="public/js/sentiment_analysis.js">
     </script>
 
 </body>
