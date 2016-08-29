@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>REVOLVify</title>
+    <title>INSPECTifi</title>
     <meta name="description" content="Page scroll animation using CSS animate" />
     <meta name="keywords" content="css animation, loading effect, animate, scroll loading, scroll animation" />
     <meta name="author" content="Mario Oliver" />
@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="public/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+    <script src="public/js/sentiment_analysis.js"></script>
     <!-- D3 Web CDN -->
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <!-- jQuery Web CDN -->
@@ -48,8 +49,7 @@
 
         <header class="top">
 
-            <h1 class="site-title"> Analytics of
-            User Feedback </h1>
+            <h1 class="site-title">User Feedback Analytics</h1>
         </header>
 
         <nav class="effects">
@@ -61,9 +61,9 @@
         </nav>
 
         <div class="post">
-            <span class="icon fa fa-beer"> </span>
-            <h2> Lorem ipsum. </h2>
-            <p> At vero .</p>
+            <span><img src="public/img/inspectify_logo_black.png" style="height: 100px"/> </span>
+            <h2> INSPECTifi </h2>
+            <p> Your user feedback and analytics software.</p>
         </div>
 
         <div class="post_fromRight" id="list_div">
@@ -173,7 +173,7 @@
                         iDiv.setAttribute("style", "color : grey !important");
                         comment_text.appendChild(iDiv);
                         iDiv.textContent = array[i].feedback;
-                        
+
                     }
                     doc_root.appendChild(brek);
                 }
@@ -181,8 +181,7 @@
         }
     </script>
 
-    <script src="public/js/sentiment_analysis.js">
-    </script>
+
 
 </body>
 
