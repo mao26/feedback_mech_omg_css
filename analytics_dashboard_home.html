@@ -81,68 +81,80 @@
     <div class="w3-row-padding w3-padding-64 w3-container post" id="grid-1">
         <div class="w3-content">
             <h1 class="headline">Summary</h1>
-            <div class="left-summary">
-                <p></p>
-            </div>
-            <div class="right-summary">
-                <table class="table" id="emoji-table">
-                    <tbody>
-                        <tr>
-                            <td style="background-color: #E6EFF0"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-                                <p>Total: <span id="reaction-total-1"></span> </p>
-                            </td>
-                            <td style="background-color: #AFDBDE"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-                                <p>Total: <span id="reaction-total-2"></span> </p>
-                            </td>
-                            <td style="background-color: #97CACE"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-                                <p>Total: <span id="reaction-total-3"></span> </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
             <br>
-            <br>
-            <table class="table table-bordered" id="best-worst-page-table">
-                <tbody>
-                    <tr>
-                        <th>Best Pages</th>
-                        <td>
-                            <div class="page-name" id="best-page"></div>
-                        </td>
-                        <td>
-                            <div class="page-emo-count"> <i id="best-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Worst Pages</th>
-                        <td>
-                            <div class="page-name" id="worst-page"></div>
-                        </td>
-                        <td>
-                            <div class="page-emo-count"> <i id="worst-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Most Rated</th>
-                        <td>
-                            <div class="page-name" id="most-rated-page"></div>
-                        </td>
-                        <td>
-                            <div class="page-emo-count"> <i id="most-rated-page-ratings" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Most Visited</th>
-                        <td>
-                            <div class="page-name">index.html</div>
-                        </td>
-                        <td>
-                            <div class="page-emo-count"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i> </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="summary-block">
+                <div class="left-summary">
+                    <p class="summary-header">REACTION SUMMARY</p>
+                </div>
+                <div class="right-summary">
+                    <table class="table" id="emoji-table">
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #267b82; border-right: 1px solid white"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                                    <p>Total: <span id="reaction-total-1"></span> </p>
+                                </td>
+                                <td style="background-color: #267b82; border-right: 1px solid white"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                                    <p>Total: <span id="reaction-total-2"></span> </p>
+                                </td>
+                                <td style="background-color: #267b82; border-right: 1px solid white"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                                    <p>Total: <span id="reaction-total-3"></span> </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <br> 
+                <br>
+            </div>
+            <div class="summary-block">
+                <div class="left-summary">
+                    <p class="summary-header">PAGE SUMMARY</p>
+                </div>
+                <div class="right-summary">
+                    <table class="table table-bordered" id="best-worst-page-table">
+                        <tbody>
+                            <tr>
+                                <th>Best Pages</th>
+                                <td>
+                                    <div class="page-name" id="best-page"></div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="best-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Worst Pages</th>
+                                <td>
+                                    <div class="page-name" id="worst-page"></div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="worst-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Most Rated</th>
+                                <td>
+                                    <div class="page-name" id="most-rated-page"></div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="most-rated-page-ratings" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Most Visited</th>
+                                <td>
+                                    <div class="page-name">index.html</div>
+                                </td>
+                                <td>
+                                    <div class="page-emo-count"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i> </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Second Grid -->
@@ -177,15 +189,15 @@
     </script>
     <script>
         /* Quote of the Day (doesnt work - CORS issue)
-                        $.ajax({
-                            url: 'https://quotes.rest/qod.js'
-                            , dataType: 'jsonp'
-                            , success: function (data) {
-                                console.log("Quote: " + data.quote);
-                                console.log("Author: " + data.author);
-                            }
-                        });
-                        */
+                                $.ajax({
+                                    url: 'https://quotes.rest/qod.js'
+                                    , dataType: 'jsonp'
+                                    , success: function (data) {
+                                        console.log("Quote: " + data.quote);
+                                        console.log("Author: " + data.author);
+                                    }
+                                });
+                                */
     </script>
     <script src="public/js/analytics_dashboard_home_scripts.js"></script>
 </body>
