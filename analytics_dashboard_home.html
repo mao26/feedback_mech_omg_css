@@ -84,23 +84,14 @@
             <table class="table" id="emoji-table">
                 <tbody>
                     <tr>
-                        <td style="background-color: #E6EFF0">
-                            <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-                            <p>Total: 
-                                <span id="reaction-total-1"></span>
-                            </p>
+                        <td style="background-color: #E6EFF0"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
+                            <p>Total: <span id="reaction-total-1"></span> </p>
                         </td>
-                        <td style="background-color: #AFDBDE">
-                            <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-                            <p>Total: 
-                                <span id="reaction-total-2"></span>
-                            </p>
+                        <td style="background-color: #AFDBDE"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
+                            <p>Total: <span id="reaction-total-2"></span> </p>
                         </td>
-                        <td style="background-color: #97CACE">
-                            <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-                            <p>Total: 
-                                <span id="reaction-total-3"></span>
-                            </p>
+                        <td style="background-color: #97CACE"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
+                            <p>Total: <span id="reaction-total-3"></span> </p>
                         </td>
                     </tr>
                 </tbody>
@@ -130,12 +121,10 @@
                     <tr>
                         <th>Most Rated</th>
                         <td>
-                            <div class="page-name">index.html</div>
+                            <div class="page-name" id="most-rated-page"></div>
                         </td>
                         <td>
-                            <div class="page-emo-count">
-                                <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i>
-                            </div>
+                            <div class="page-emo-count"> <i id="most-rated-page-ratings" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
                         </td>
                     </tr>
                     <tr>
@@ -144,9 +133,7 @@
                             <div class="page-name">index.html</div>
                         </td>
                         <td>
-                            <div class="page-emo-count">
-                                <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i>
-                            </div>
+                            <div class="page-emo-count"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i> </div>
                         </td>
                     </tr>
                 </tbody>
@@ -161,13 +148,7 @@
         <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1> </div>
     <!-- Footer -->
     <footer class="w3-container w3-padding-32 w3-center w3-opacity" style="bottom:0">
-        <div class="w3-xlarge w3-padding-32">
-            <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a>
-            <a href="#" class="social-link w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a>
-            <a href="#" class="social-link w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="social-link w3-hover-text-grey"><i class="fa fa-flickr"></i></a>
-            <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
-        </div>
+        <div class="w3-xlarge w3-padding-32"> <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a> <a href="#" class="social-link w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a> <a href="#" class="social-link w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a> <a href="#" class="social-link w3-hover-text-grey"><i class="fa fa-flickr"></i></a> <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a> </div>
     </footer>
     <script>
         // Used to toggle the menu on small screens when clicking on the menu button
@@ -188,6 +169,18 @@
                 console.log(data)
             });
         }
+    </script>
+    <script>
+        /* Quote of the Day (doesnt work - CORS issue)
+                $.ajax({
+                    url: 'https://quotes.rest/qod.js'
+                    , dataType: 'jsonp'
+                    , success: function (data) {
+                        console.log("Quote: " + data.quote);
+                        console.log("Author: " + data.author);
+                    }
+                });
+                */
     </script>
     <script src="public/js/analytics_dashboard_home_scripts.js"></script>
 </body>
