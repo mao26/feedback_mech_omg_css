@@ -96,7 +96,7 @@ $(document).ready(function () {
       sentiment_text.setAttribute("class", "feedback-block w3-round-xlarge w3-padding-250 w3-center");
       sentiment_text.setAttribute("width", "100px");
       sentiment_text.setAttribute("height", "300px");
-      sentiment_text.setAttribute("style", "color : #4b4b4b !important");
+      sentiment_text.setAttribute("style", "color : #4b4b4b !important; padding-bottom : 10px");
       comment_text.appendChild(sentiment_text);
       sentiment_score = sentiment(array[i].feedback);
       console.log(sentiment_score);
