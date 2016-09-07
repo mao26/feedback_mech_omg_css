@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>QuickCart</title>
+  <meta name="description" content="Page scroll animation using CSS animate" />
+  <meta name="keywords" content="css animation, loading effect, animate, scroll loading, scroll animation" />
+  <meta name="author" content="Mario Oliver" />
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link href="public/css/analytics_style.css" rel="stylesheet">
+  <link href="public/css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+  <!--Analytics dependencies -->
+  <script src="ifvisible.js"></script>
+  <!--Dependency of TimeMe.js-->
+  <script src="timeme.js"></script>
+  <!--Tracks time spent on page-->
+  <script src="fingerprint2.js"></script>
+  <script src="OMGCSSAnalytics.js"></script>
+  <script src="public/js/sentiment_analysis.js"></script>
+  <!-- D3 Web CDN -->
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <!-- jQuery Web CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- D3 Word Cloud Script Files -->
+  <script src="public/js/d3.layout.cloud.js"></script>
+
+  <!-- style for word cloud ONLY -->
+  <style>
+    .cloud {
+      font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
+    <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+      <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    </li>
+                <li><a href="home.html" class="w3-hide-small w3-hover-white w3-padding-large ">Home</a></li>
+                <li class="w3-hide-small"><a href="avatar.html" class="w3-padding-large w3-white" id="click-button">Avatar</a></li>
+                <li class="w3-hide-small"><a href="mapping.html" class="w3-padding-large w3-hover-white">Mapping</a></li>
+                <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Social Good</a></li>
+  </ul>
+
+
+  <div class="container">
+    <div class="post">
+      <span><img src="public/img/qc_logo_transparent.gif" style="height: 50px"/> </span>
+      <h2 style="font-size: 20px">QuickCart </h2>
+      <p style="font-size: 15px">Let's make grocery store shopping fun!</p>
+    </div>
+
+    <header class="top">
+
+      <h1 class="site-title">Your avatar!</h1>
+    </header>
+
+    <nav class="effects">
+      <ul>
+        <li> <a href="#">Business</a> </li>
+        <li onclick="changepic()"> <a href="#">Hipster</a> </li>
+        <li> <a href="#">Student</a> </li>
+      </ul>
+    </nav>
+
+    <div class="post avatar_img" id="images">
+   	<img style="height:150px" src="public/img/avatar1.gif"> 
+	<br/>
+	<br/>
+	<br/>
+    </div>
+
+    <div class="post avatar_img" id="images">
+   	<img style="height:150px" src="public/img/avatar3.gif"> 
+	<br/>
+	<br/>
+	<br/>
+    </div>
+    
+    <div class="post avatar_img" id="images">
+   	<img style="height:150px" src="public/img/avatar2.gif"> 
+	<br/>
+	<br/>
+	<br/>
+    </div>
+
+    <div class="post" id="cloud_div">
+      <script src="public/js/d3drawcloud.js"></script>
+    </div>
+
+    <footer class="footer" id="footer">
+      Created by <a href="#">An Oliver-Rodio Production</a>
+
+    </footer>
+
+  </div>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="public/js/viewportchecker.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('.post').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated bounceInLeft', // Class to add to the elements when they are visible
+        offset: 100
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('.post_fromRight').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated bounceInRight', // Class to add to the elements when they are visible
+        offset: 100
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    function changepic(){
+	$('.avatar_img').attr('src', 'public/img/avatar2.gif');
+    }
+
+  </script>
+
+  <script src="public/js/sentiment_bundle.js">
+    
+  </script>
+
+</body>
+
+</html>

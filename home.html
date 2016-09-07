@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>QuickCart</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="public/css/demo.css" rel="stylesheet">
+    <link href="public/css/analytics_style.css" rel="stylesheet">
+    <link href="public/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!--Analytics dependencies -->
+    <script src="ifvisible.js"></script>
+    <!--Dependency of TimeMe.js-->
+    <script src="timeme.js"></script>
+    <!--Tracks time spent on page-->
+    <script src="fingerprint2.js"></script>
+    <script src="OMGCSSAnalytics.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/demo.css" />
+    <!-- Latest compiled and minified CSS -->
+    <script src="public/js/viewportchecker.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('.post').addClass("hidden").viewportChecker({
+                classToAdd: 'visible animated bounceInLeft', // Class to add to the elements when they are visible
+                offset: 100
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- puts our first set of divs (nav + revolvify) inside of a scrollable container -->
+    <div style="height: 800px; position: relative">
+        <div class=" w3-center w3-padding-128 w3-background" style="overflow-y:scroll; max-height:100%;">
+            <!-- Navbar -->
+            <div class="image-container"></div><img class="background-img" src="public/img/grocery.png">
+            <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
+                <li class="w3-hide-medium w3-hide-large w3-opennav w3-right"> <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a> </li>
+                <li><a href="home.html" class="w3-padding-large w3-white">Home</a></li>
+                <li class="w3-hide-small"><a href="avatar.html" class="w3-padding-large w3-hover-white" id="click-button">Avatar</a></li>
+                <li class="w3-hide-small"><a href="mapping.html" class="w3-padding-large w3-hover-white">Mapping</a></li>
+                <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Social Good</a></li>
+            </ul>
+            <!-- Navbar on small screens -->
+            <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
+                <ul class="w3-navbar w3-left-align w3-large w3-black">
+                    <li><a class="w3-padding-large" href="#">Link 1</a></li>
+                    <li><a class="w3-padding-large" href="#">Link 2</a></li>
+                </ul>
+            </div>
+            <div class="w3-content w3-center w3-padding-250 w3-round-xlarge header-logo">
+                <br/> <img class="w3-center" src="public/img/qc_logo_transparent.gif" style="background-color: white ; height:110px">
+                <h1 class="w3-margin w3-jumbo" style="color: white;">QuickCart</h1>
+                <h3 style="color: white; font-family: 'Noto Serif'"> QuickCart is you grocery store alter ego. Together we make shopping fun. </h3>
+                <br/> </div>
+            <br/>
+            <div class="post header-analyze">
+                <p style="color: white; font-family: 'Noto Serif';font-size: 20px;">Check out your avatar!</p>
+                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" id="feedback-button">Get Started</button>
+            </div>
+            <br/>
+            <div class="post">
+                <p style="color: white; font-family: 'Noto Serif'; font-size: 20px;">Check out the families you help by using QC!</p>
+                <button class="w3-btn w3-white w3-padding-16 w3-margin-top" id="traffic-button">Get Started</button>
+            </div>
+        </div>
+    </div>
+    <!--First Grid -->
+    <div class="image-container"></div><img class="background-img-footer" src="public/img/ocean_.jpg" style="max-height: 435px">
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">Quote of the day: <div id="qotd"></div></h1> </div>
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-32 w3-center w3-opacity footer-block" style="bottom:0.5">
+            <div class="w3-xlarge w3-padding-32"> <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a> <a href="#" class="social-link w3-hover-text-red"><i class="fa fa-pinterest-p"></i></a> <a href="#" class="social-link w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a> <a href="#" class="social-link w3-hover-text-grey"><i class="fa fa-flickr"></i></a> <a href="#" class="social-link w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a> </div>
+        </footer>
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            console.log("hello");
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            }
+            else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+    <script>
+        function hitDB() {
+            $.getJSON("http://54.183.84.147:3000/api/v1/feedback", function (data) {
+                console.log(data)
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            /* Quotes of the Day */
+            var quotes = ["Just don't do it.", "Never give up (sometimes).", "Keep on keeping on.", "Never save for tomorrow, what you can spend today."];
+            var quotenum = Math.round((quotes.length - 1) * Math.random());
+            console.log("Quote Number: " + quotenum);
+            console.log("Quote: " + quotes[quotenum]);
+            $('#qotd').append(quotes[quotenum]);
+        });
+    </script>
+    <script>
+        document.getElementById("feedback-button").onclick = function () {
+            location.href = "./analytics_dashboard_feedback.html";
+        };
+        document.getElementById("traffic-button").onclick = function () {
+            location.href = "./analytics_dashboard_traffic.html";
+        };
+    </script>
+    <script src="public/js/analytics_dashboard_home_scripts.js"></script>
+</body>
+
+</html>
