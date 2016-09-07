@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>INSPECTifi</title>
+  <title>QuickCart</title>
   <meta name="description" content="Page scroll animation using CSS animate" />
   <meta name="keywords" content="css animation, loading effect, animate, scroll loading, scroll animation" />
   <meta name="author" content="Mario Oliver" />
@@ -47,49 +47,60 @@
     <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
       <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     </li>
-    <li><a href="analytics_dashboard_home.html" class="w3-hide-small w3-padding-large w3-hover-white">Home</a></li>
-    <li><a href="analytics_dashboard_feedback.html" class="w3-padding-large w3-white" id="click-button">Feedback</a></li>
-    <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Traffic</a></li>
+                <li><a href="home.html" class="w3-hide-small w3-hover-white w3-padding-large ">Home</a></li>
+                <li class="w3-hide-small"><a href="avatar.html" class="w3-padding-large w3-white" id="click-button">Avatar</a></li>
+                <li class="w3-hide-small"><a href="mapping.html" class="w3-padding-large w3-hover-white">Mapping</a></li>
+                <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Social Good</a></li>
   </ul>
 
 
   <div class="container">
     <div class="post">
-      <span><img src="public/img/inspectify_logo_black.png" style="height: 50px"/> </span>
-      <h2 style="font-size: 20px"> INSPECTifi </h2>
-      <p style="font-size: 15px"> Your user feedback and analytics software.</p>
+      <span><img src="public/img/qc_logo_transparent.gif" style="height: 50px"/> </span>
+      <h2 style="font-size: 20px">QuickCart </h2>
+      <p style="font-size: 15px">Let's make grocery store shopping fun!</p>
     </div>
 
     <header class="top">
 
-      <h1 class="site-title">User Feedback Analytics</h1>
+      <h1 class="site-title">Your avatar!</h1>
     </header>
 
     <nav class="effects">
       <ul>
-        <li> <a href="analytics_dashboard_feedback.html#cloud_div"> Wordcloud </a> </li>
-        <li> <a href="analytics_dashboard_feedback.html#sentiment_div">Sentiment Analysis </a> </li>
-        <li> <a href="#"> List </a> </li>
+        <li> <a href="#">Business</a> </li>
+        <li onclick="changepic()"> <a href="#">Hipster</a> </li>
+        <li> <a href="#">Student</a> </li>
       </ul>
     </nav>
+
+    <div class="post avatar_img" id="images">
+   	<img style="height:150px" src="public/img/avatar1.gif"> 
+	<br/>
+	<br/>
+	<br/>
+    </div>
+
+    <div class="post avatar_img" id="images">
+   	<img style="height:150px" src="public/img/avatar3.gif"> 
+	<br/>
+	<br/>
+	<br/>
+    </div>
+    
+    <div class="post avatar_img" id="images">
+   	<img style="height:150px" src="public/img/avatar2.gif"> 
+	<br/>
+	<br/>
+	<br/>
+    </div>
 
     <div class="post" id="cloud_div">
       <script src="public/js/d3drawcloud.js"></script>
     </div>
 
-    <div class="post" id="sentiment_div">
-      <script src="public/js/sentiment_bundle.js"></script>
-    </div>
-
-    <header class="top">
-      <h1>User Comment</h1>
-    </header>
-    <div class="post_fromRight" id="list_div" position="relative" style="height : 1500px">
-    </div>
-
-
     <footer class="footer" id="footer">
-      Created by <a href="#">OMG-CSS</a>
+      Created by <a href="#">An Oliver-Rodio Production</a>
 
     </footer>
 
@@ -114,6 +125,13 @@
         offset: 100
       });
     });
+  </script>
+
+  <script type="text/javascript">
+    function changepic(){
+	$('.avatar_img').attr('src', 'public/img/avatar2.gif');
+    }
+
   </script>
 
   <script src="public/js/sentiment_bundle.js">

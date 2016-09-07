@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>Analytics Dashboard</title>
+    <title>QuickCart</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet">
@@ -42,12 +42,13 @@
     <div style="height: 800px; position: relative">
         <div class=" w3-center w3-padding-128 w3-background" style="overflow-y:scroll; max-height:100%;">
             <!-- Navbar -->
-            <div class="image-container"></div><img class="background-img" src="public/img/yosemite.jpg">
+            <div class="image-container"></div><img class="background-img" src="public/img/grocery.png">
             <ul class="w3-navbar w3-card-2 w3-left w3-left-align w3-top w3-large" style="background-color: #267b82">
                 <li class="w3-hide-medium w3-hide-large w3-opennav w3-right"> <a class="w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a> </li>
-                <li><a href="analytics_dashboard_home.html" class="w3-padding-large w3-white">Home</a></li>
-                <li class="w3-hide-small"><a href="analytics_dashboard_feedback.html" class="w3-padding-large w3-hover-white" id="click-button">Feedback</a></li>
-                <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Traffic</a></li>
+                <li><a href="home.html" class="w3-padding-large w3-white">Home</a></li>
+                <li class="w3-hide-small"><a href="avatar.html" class="w3-padding-large w3-hover-white" id="click-button">Avatar</a></li>
+                <li class="w3-hide-small"><a href="mapping.html" class="w3-padding-large w3-hover-white">Mapping</a></li>
+                <li class="w3-hide-small"><a href="analytics_dashboard_traffic.html" class="w3-padding-large w3-hover-white">Social Good</a></li>
             </ul>
             <!-- Navbar on small screens -->
             <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
@@ -57,103 +58,23 @@
                 </ul>
             </div>
             <div class="w3-content w3-center w3-padding-250 w3-round-xlarge header-logo">
-                <br/> <img class="w3-center" src="public/img/inspectify_logo_white.png" style="height:110px">
-                <h1 class="w3-margin w3-jumbo" style="color: white;">INSPECTifi</h1>
-                <h3 style="color: white; font-family: 'Noto Serif'">- Inspectify is your one-stop shop for analysis and synthesis. View user feedback,
-                    website traffic, and more with this detailed dashboard -</h3>
+                <br/> <img class="w3-center" src="public/img/qc_logo_transparent.gif" style="background-color: white ; height:110px">
+                <h1 class="w3-margin w3-jumbo" style="color: white;">QuickCart</h1>
+                <h3 style="color: white; font-family: 'Noto Serif'"> QuickCart is you grocery store alter ego. Together we make shopping fun. </h3>
                 <br/> </div>
             <br/>
             <div class="post header-analyze">
-                <p style="color: white; font-family: 'Noto Serif';font-size: 20px;">See what users are saying about your website</p>
+                <p style="color: white; font-family: 'Noto Serif';font-size: 20px;">Check out your avatar!</p>
                 <button class="w3-btn w3-white w3-padding-16 w3-margin-top" id="feedback-button">Get Started</button>
             </div>
             <br/>
             <div class="post">
-                <p style="color: white; font-family: 'Noto Serif'; font-size: 20px;">Analyze how your users visit your webpage</p>
+                <p style="color: white; font-family: 'Noto Serif'; font-size: 20px;">Check out the families you help by using QC!</p>
                 <button class="w3-btn w3-white w3-padding-16 w3-margin-top" id="traffic-button">Get Started</button>
             </div>
         </div>
     </div>
-    <!-- First Grid -->
-    <div class="w3-row-padding w3-padding-64 w3-container post" id="grid-1">
-        <div class="w3-content">
-            <h1 class="headline">Summary</h1>
-            <br>
-            <div class="summary-block">
-                <div class="left-summary">
-                    <p class="summary-header">REACTION TABLE</p>
-                </div>
-                <div class="right-summary">
-                    <table class="table" id="emoji-table">
-                        <tbody>
-                            <tr>
-                                <td style="background-color: #C9E9ED"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"></i>
-                                    <p>Total: <span id="reaction-total-1"></span> </p>
-                                </td>
-                                <td style="background-color: #AFDBDE"> <i id="reaction-frown" class="fa fa-reaction fa-meh-o"></i>
-                                    <p>Total: <span id="reaction-total-2"></span> </p>
-                                </td>
-                                <td style="background-color: #97CACE"> <i id="reaction-meh" class="fa fa-reaction fa-frown-o"></i>
-                                    <p>Total: <span id="reaction-total-3"></span> </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="summary-block">
-                <div class="left-summary">
-                    <p class="summary-header">PAGE TABLE</p>
-                </div>
-                <div class="right-summary">
-                    <table class="table table-bordered" id="best-worst-page-table">
-                        <tbody>
-                            <tr>
-                                <th>Best Pages</th>
-                                <td>
-                                    <div class="page-name" id="best-page"></div>
-                                </td>
-                                <td>
-                                    <div class="page-emo-count"> <i id="best-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Worst Pages</th>
-                                <td>
-                                    <div class="page-name" id="worst-page"></div>
-                                </td>
-                                <td>
-                                    <div class="page-emo-count"> <i id="worst-page-reaction-count" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Most Rated</th>
-                                <td>
-                                    <div class="page-name" id="most-rated-page"></div>
-                                </td>
-                                <td>
-                                    <div class="page-emo-count"> <i id="most-rated-page-ratings" class="fa fa-reaction fa-smile-o"><span> </span></i> </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Most Visited</th>
-                                <td>
-                                    <div class="page-name">index.html</div>
-                                </td>
-                                <td>
-                                    <div class="page-emo-count"> <i id="reaction-happy" class="fa fa-reaction fa-smile-o"><span> 50</span></i> </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Second Grid -->
+    <!--First Grid -->
     <div class="image-container"></div><img class="background-img-footer" src="public/img/ocean_.jpg" style="max-height: 435px">
     <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
         <h1 class="w3-margin w3-xlarge">Quote of the day: <div id="qotd"></div></h1> </div>
